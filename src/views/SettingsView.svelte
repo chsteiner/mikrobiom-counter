@@ -72,7 +72,7 @@
       </summary>
       <div class="guide-content">
         <p class="guide-intro">
-          Das <em>American Gut Project</em> (2018, 10.000+ Teilnehmer) hat gezeigt: Wer 30+ verschiedene Pflanzenarten pro Woche isst, hat ein signifikant diverseres Darmmikrobiom als jemand mit weniger als 10.
+          Das <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5954204/" target="_blank" rel="noopener"><em>American Gut Project</em></a> (2018, 10.000+ Teilnehmer) hat gezeigt: Wer 30+ verschiedene Pflanzenarten pro Woche isst, hat ein signifikant diverseres Darmmikrobiom als jemand mit weniger als 10.
         </p>
         <p class="guide-intro">
           Die Studie hat schlicht verschiedene Pflanzenarten pro Woche gezählt. Diese App macht es genauso: jede Art = 1 Punkt, unabhängig von Menge oder Zubereitung.
