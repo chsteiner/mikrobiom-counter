@@ -50,8 +50,10 @@
       },
       onEnd: () => {
         if (state === 'listening') {
-          // Ended without result
-          if (!interimText) {
+          if (interimText) {
+            // Final result never arrived — use interim text
+            processTranscript(interimText);
+          } else {
             errorMessage = 'Nichts erkannt. Bitte nochmal versuchen.';
             state = 'error';
           }
@@ -203,7 +205,8 @@
                     />
                     <span class="match-name">{match.plant.name}</span>
                     {#if match.confidence !== 'exact'}
-                      <span class="match-source">({match.matchedTerm})</span>
+                      {@const alias = match.plant.aliases.find(a => a.toLowerCase().includes(match.matchedTerm.toLowerCase()))}
+                      <span class="match-source">{alias ? `(${alias})` : `(${match.matchedTerm})`}</span>
                     {/if}
                   </label>
                 {:else}
