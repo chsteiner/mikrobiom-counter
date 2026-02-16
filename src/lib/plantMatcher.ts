@@ -62,6 +62,44 @@ function findPlant(id: string): Plant | null {
   return PLANTS.find(p => p.id === id) ?? null;
 }
 
+// German food adjectives (all declined forms) to strip before matching
+const FOOD_ADJECTIVES = new Set([
+  // Colors
+  'grün', 'grüne', 'grüner', 'grünes', 'grünen', 'grünem',
+  'rot', 'rote', 'roter', 'rotes', 'roten', 'rotem',
+  'gelb', 'gelbe', 'gelber', 'gelbes', 'gelben', 'gelbem',
+  'schwarz', 'schwarze', 'schwarzer', 'schwarzes', 'schwarzen', 'schwarzem',
+  'weiß', 'weiße', 'weißer', 'weißes', 'weißen', 'weißem',
+  'braun', 'braune', 'brauner', 'braunes', 'braunen', 'braunem',
+  'orange', 'orangene', 'orangener',
+  // Freshness / preparation
+  'frisch', 'frische', 'frischer', 'frisches',
+  'getrocknet', 'getrocknete', 'getrockneter', 'getrocknetes',
+  'tiefgekühlt', 'tiefgekühlte', 'tiefgekühlter',
+  'roh', 'rohe', 'roher', 'rohes',
+  'gekocht', 'gekochte', 'gekochter', 'gekochtes',
+  'geröstet', 'geröstete', 'gerösteter', 'geröstetes',
+  'geräuchert', 'geräucherte', 'geräucherter',
+  'eingelegt', 'eingelegte', 'eingelegter', 'eingelegtes',
+  // Size / type
+  'klein', 'kleine', 'kleiner', 'kleines',
+  'groß', 'große', 'großer', 'großes',
+  'jung', 'junge', 'junger', 'junges',
+  'wild', 'wilde', 'wilder', 'wildes',
+  'bio',
+]);
+
+function stripFoodAdjectives(s: string): string {
+  const words = s.split(/\s+/);
+  if (words.length < 2) return s;
+  // Strip leading adjectives
+  let i = 0;
+  while (i < words.length - 1 && FOOD_ADJECTIVES.has(words[i])) {
+    i++;
+  }
+  return i > 0 ? words.slice(i).join(' ') : s;
+}
+
 /**
  * 4-tier fuzzy matching for German plant names.
  * Tier 1: Exact match against all aliases
@@ -124,6 +162,15 @@ export function matchPlant(input: string): MatchResult {
   }
   if (bestMatch) {
     return { plant: findPlant(bestMatch.plantId), confidence: 'low', matchedTerm: input };
+  }
+
+  // Tier 5: Strip food adjectives ("grüne Paprika" → "Paprika") and retry
+  const stripped = stripFoodAdjectives(normalized);
+  if (stripped !== normalized) {
+    const retryResult = matchPlant(stripped);
+    if (retryResult.confidence !== 'none') {
+      return { ...retryResult, matchedTerm: input };
+    }
   }
 
   return { plant: null, confidence: 'none', matchedTerm: input };
