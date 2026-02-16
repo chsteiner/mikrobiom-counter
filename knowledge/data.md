@@ -8,14 +8,14 @@
 | Obst | `obst` | 55 | Apfel, Avocado, Olive, Kaktusfeige |
 | Nüsse | `nuesse` | 14 | Walnuss, Erdnuss, Tigernuss |
 | Samen | `samen` | 14 | Sesam/Tahini, Chiasamen, Senfsaat |
-| Hülsenfrüchte | `huelsenfruechte` | 19 | Linsen, Tofu/Sojabohne, Johannisbrot |
+| Hülsenfrüchte | `huelsenfruechte` | 18 | Linsen, Tofu/Sojabohne, Käferbohne |
 | Getreide | `getreide` | 27 | Hafer, Weizen/Pasta, Quinoa |
 | Kräuter | `kraeuter` | 41 | Basilikum, Kamille, Gartenkresse |
 | Gewürze | `gewuerze` | 36 | Kurkuma, Zimt, Currypulver, Za'atar |
 | Pilze | `pilze` | 11 | Champignon, Shiitake, Hefeflocken |
 | Genussmittel | `genuss` | 4 | Kaffee, Kakao, Tee (Camellia), Mate |
 
-**Gesamt:** 283 Pflanzen (Stand: plants.ts)
+**Gesamt:** 284 Pflanzen (Stand: plants.ts)
 
 ## Datenstruktur
 
@@ -99,6 +99,9 @@ Stemming-Regeln (Reihenfolge wichtig):
 - Weizengras/Weizengraspulver als Aliase bei Weizen
 - Zitronenschale/Zitronenabrieb als Aliase bei Zitrone
 - Orangenschale/Orangenabrieb als Aliase bei Orange
+- Österreichische Dialekt-Aliase: Schwammerl(n), Erdäpfl, Kipfler, Heurige, Heiden/Heidenmehl, Ogrosl/Agrasel, Kletzen, Zibeben, Kriacherl/Kriecherl, Murke(n), Umurke, Neugewürz, Strankalan/Strankerl
+- Käferbohne als neuer Eintrag (Phaseolus coccineus, steirisches Grundnahrungsmittel)
+- Speech Recognition von de-DE auf de-AT umgestellt
 
 ### Grenzfälle in der Kategorisierung
 

@@ -5,12 +5,12 @@ export const PLANTS: Plant[] = [
   // GEMÜSE (Vegetables) — 60 entries
   // ──────────────────────────────────────────────
   { id: 'tomate', name: 'Tomate', category: 'gemuese', aliases: ['Tomaten', 'Paradeiser', 'Paradiesapfel', 'Strauchtomaten', 'Cherrytomaten', 'Cocktailtomaten', 'Tomatenmark', 'Passierte Tomaten', 'Dosentomaten'] },
-  { id: 'karotte', name: 'Karotte', category: 'gemuese', aliases: ['Karotten', 'Möhre', 'Möhren', 'Mohrrübe', 'Mohrrüben', 'Rüebli', 'Gelbe Rübe', 'Gelbe Rüben'] },
+  { id: 'karotte', name: 'Karotte', category: 'gemuese', aliases: ['Karotten', 'Möhre', 'Möhren', 'Mohrrübe', 'Mohrrüben', 'Rüebli', 'Gelbe Rübe', 'Gelbe Rüben', 'Murke', 'Murken'] },
   { id: 'brokkoli', name: 'Brokkoli', category: 'gemuese', aliases: ['Broccoli', 'Brokoli', 'Broccolo'] },
   { id: 'paprika', name: 'Paprika', category: 'gemuese', aliases: ['Paprikas', 'Peperoni', 'Gemüsepaprika', 'Spitzpaprika'] },
   { id: 'zwiebel', name: 'Zwiebel', category: 'gemuese', aliases: ['Zwiebeln', 'Speisezwiebel', 'Küchenzwiebel', 'Bolle'] },
   { id: 'knoblauch', name: 'Knoblauch', category: 'gemuese', aliases: ['Knoblauchzehe', 'Knoblauchzehen', 'Knobi', 'Knofel'] },
-  { id: 'gurke', name: 'Gurke', category: 'gemuese', aliases: ['Gurken', 'Salatgurke', 'Schlangengurke', 'Kukumer', 'Essiggurke', 'Gewürzgurke', 'Cornichons'] },
+  { id: 'gurke', name: 'Gurke', category: 'gemuese', aliases: ['Gurken', 'Salatgurke', 'Schlangengurke', 'Kukumer', 'Umurke', 'Essiggurke', 'Gewürzgurke', 'Cornichons'] },
   { id: 'zucchini', name: 'Zucchini', category: 'gemuese', aliases: ['Zuccini', 'Zuchini', 'Courgette'] },
   { id: 'aubergine', name: 'Aubergine', category: 'gemuese', aliases: ['Auberginen', 'Eierfrucht', 'Melanzani'] },
   { id: 'spinat', name: 'Spinat', category: 'gemuese', aliases: ['Blattspinat', 'Rahmspinat', 'Babyspinat'] },
@@ -25,7 +25,7 @@ export const PLANTS: Plant[] = [
   { id: 'spargel', name: 'Spargel', category: 'gemuese', aliases: ['Grüner Spargel', 'Weißer Spargel', 'Spargelstangen'] },
   { id: 'kuerbis', name: 'Kürbis', category: 'gemuese', aliases: ['Kürbisse', 'Hokkaidokürbis', 'Hokkaido', 'Butternutkürbis', 'Butternut', 'Muskatkürbis', 'Spaghettikürbis'] },
   { id: 'suesskartoffel', name: 'Süßkartoffel', category: 'gemuese', aliases: ['Süßkartoffeln', 'Süsskartoffel', 'Süsskartoffeln', 'Batate', 'Bataten'] },
-  { id: 'kartoffel', name: 'Kartoffel', category: 'gemuese', aliases: ['Kartoffeln', 'Erdäpfel', 'Erdapfel', 'Grumbeere', 'Grundbirne'] },
+  { id: 'kartoffel', name: 'Kartoffel', category: 'gemuese', aliases: ['Kartoffeln', 'Erdäpfel', 'Erdapfel', 'Erdäpfl', 'Grumbeere', 'Grundbirne', 'Grundbirn', 'Kipfler', 'Heurige'] },
   { id: 'radieschen', name: 'Radieschen', category: 'gemuese', aliases: ['Radieserl', 'Radiescherl'] },
   { id: 'rettich', name: 'Rettich', category: 'gemuese', aliases: ['Radi', 'Schwarzer Rettich', 'Weißer Rettich'] },
   { id: 'rote-bete', name: 'Rote Bete', category: 'gemuese', aliases: ['Rote Beete', 'Rote Rübe', 'Rote Rüben', 'Randen', 'Rahner', 'Randen'] },
@@ -73,7 +73,7 @@ export const PLANTS: Plant[] = [
   // OBST (Fruits) — 52 entries
   // ──────────────────────────────────────────────
   { id: 'apfel', name: 'Apfel', category: 'obst', aliases: ['Äpfel', 'Apferl', 'Öpfel'] },
-  { id: 'birne', name: 'Birne', category: 'obst', aliases: ['Birnen', 'Birnä'] },
+  { id: 'birne', name: 'Birne', category: 'obst', aliases: ['Birnen', 'Birnä', 'Kletzen'] },
   { id: 'banane', name: 'Banane', category: 'obst', aliases: ['Bananen', 'Kochbanane', 'Kochbananen'] },
   { id: 'orange', name: 'Orange', category: 'obst', aliases: ['Orangen', 'Apfelsine', 'Apfelsinen', 'Orangenschale', 'Orangenabrieb'] },
   { id: 'zitrone', name: 'Zitrone', category: 'obst', aliases: ['Zitronen', 'Limone', 'Limonen', 'Zitronenschale', 'Zitronenabrieb'] },
@@ -85,7 +85,7 @@ export const PLANTS: Plant[] = [
   { id: 'blaubeere', name: 'Blaubeere', category: 'obst', aliases: ['Blaubeeren', 'Heidelbeere', 'Heidelbeeren', 'Schwarzbeere', 'Schwarzbeeren'] },
   { id: 'brombeere', name: 'Brombeere', category: 'obst', aliases: ['Brombeeren', 'Brombeer'] },
   { id: 'johannisbeere', name: 'Johannisbeere', category: 'obst', aliases: ['Johannisbeeren', 'Ribisel', 'Ribiseln', 'Rote Johannisbeere', 'Schwarze Johannisbeere'] },
-  { id: 'stachelbeere', name: 'Stachelbeere', category: 'obst', aliases: ['Stachelbeeren', 'Gooseberry'] },
+  { id: 'stachelbeere', name: 'Stachelbeere', category: 'obst', aliases: ['Stachelbeeren', 'Gooseberry', 'Ogrosl', 'Ogrosln', 'Agrasel', 'Agraseln'] },
   { id: 'kirsche', name: 'Kirsche', category: 'obst', aliases: ['Kirschen', 'Süßkirsche', 'Sauerkirsche', 'Weichsel', 'Weichseln'] },
   { id: 'pflaume', name: 'Pflaume', category: 'obst', aliases: ['Pflaumen', 'Zwetschge', 'Zwetschgen', 'Zwetschke', 'Zwetschken', 'Trockenpflaume', 'Trockenpflaumen', 'Dörrpflaume', 'Dörrpflaumen'] },
   { id: 'pfirsich', name: 'Pfirsich', category: 'obst', aliases: ['Pfirsiche'] },
@@ -96,7 +96,7 @@ export const PLANTS: Plant[] = [
   { id: 'kiwi', name: 'Kiwi', category: 'obst', aliases: ['Kiwis', 'Chinesische Stachelbeere'] },
   { id: 'melone', name: 'Melone', category: 'obst', aliases: ['Melonen', 'Honigmelone', 'Zuckermelone', 'Galiamelone', 'Cantaloupemelone'] },
   { id: 'wassermelone', name: 'Wassermelone', category: 'obst', aliases: ['Wassermelonen'] },
-  { id: 'traube', name: 'Traube', category: 'obst', aliases: ['Trauben', 'Weintrauben', 'Weintraube', 'Rosinen', 'Sultaninen', 'Korinthen', 'Weinblätter', 'Weinblatt'] },
+  { id: 'traube', name: 'Traube', category: 'obst', aliases: ['Trauben', 'Weintrauben', 'Weintraube', 'Rosinen', 'Sultaninen', 'Korinthen', 'Zibeben', 'Weinblätter', 'Weinblatt'] },
   { id: 'feige', name: 'Feige', category: 'obst', aliases: ['Feigen'] },
   { id: 'dattel', name: 'Dattel', category: 'obst', aliases: ['Datteln', 'Medjool'] },
   { id: 'granatapfel', name: 'Granatapfel', category: 'obst', aliases: ['Granatäpfel', 'Grenadine'] },
@@ -114,7 +114,7 @@ export const PLANTS: Plant[] = [
   { id: 'rhabarber', name: 'Rhabarber', category: 'obst', aliases: ['Rhabarberstangen'] },
   { id: 'avocado', name: 'Avocado', category: 'obst', aliases: ['Avocados', 'Avokado'] },
   { id: 'olive', name: 'Olive', category: 'obst', aliases: ['Oliven'] },
-  { id: 'mirabelle', name: 'Mirabelle', category: 'obst', aliases: ['Mirabellen'] },
+  { id: 'mirabelle', name: 'Mirabelle', category: 'obst', aliases: ['Mirabellen', 'Kriacherl', 'Kriecherl'] },
   { id: 'kumquat', name: 'Kumquat', category: 'obst', aliases: ['Kumquats', 'Zwergorange'] },
   { id: 'kaki', name: 'Kaki', category: 'obst', aliases: ['Kakis', 'Sharonfrucht', 'Persimone'] },
   { id: 'sternfrucht', name: 'Sternfrucht', category: 'obst', aliases: ['Karambole', 'Karambola'] },
@@ -165,7 +165,7 @@ export const PLANTS: Plant[] = [
   { id: 'alfalfa', name: 'Alfalfa', category: 'samen', aliases: ['Luzerne', 'Alfalfasprossen', 'Luzernesprossen'] },
 
   // ──────────────────────────────────────────────
-  // HÜLSENFRÜCHTE (Legumes) — 17 entries
+  // HÜLSENFRÜCHTE (Legumes) — 18 entries
   // ──────────────────────────────────────────────
   { id: 'linsen', name: 'Linsen', category: 'huelsenfruechte', aliases: ['Linse', 'Rote Linsen', 'Grüne Linsen', 'Beluga-Linsen', 'Berglinsen', 'Tellerlinsen', 'Pardina-Linsen'] },
   { id: 'kichererbsen', name: 'Kichererbsen', category: 'huelsenfruechte', aliases: ['Kichererbse', 'Hummus', 'Falafel'] },
@@ -185,6 +185,7 @@ export const PLANTS: Plant[] = [
   { id: 'azukibohnen', name: 'Azukibohnen', category: 'huelsenfruechte', aliases: ['Azukibohne', 'Adzukibohne', 'Adzukibohnen'] },
   { id: 'kichererbsenmehl', name: 'Kichererbsenmehl', category: 'huelsenfruechte', aliases: ['Besan', 'Grammehl'] },
   { id: 'johannisbrot', name: 'Johannisbrot', category: 'huelsenfruechte', aliases: ['Carob', 'Karob', 'Johannisbrotbaum'] },
+  { id: 'kaeferbohne', name: 'Käferbohne', category: 'huelsenfruechte', aliases: ['Käferbohnen', 'Feuerbohne', 'Feuerbohnen', 'Prunkbohne'] },
 
   // ──────────────────────────────────────────────
   // GETREIDE (Grains) — 26 entries
@@ -196,7 +197,7 @@ export const PLANTS: Plant[] = [
   { id: 'dinkel', name: 'Dinkel', category: 'getreide', aliases: ['Dinkelmehl', 'Dinkelflocken', 'Dinkelbrot', 'Grünkern', 'Dinkelreis'] },
   { id: 'gerste', name: 'Gerste', category: 'getreide', aliases: ['Graupen', 'Rollgerste', 'Gerstengraupen', 'Gerstengras'] },
   { id: 'hirse', name: 'Hirse', category: 'getreide', aliases: ['Goldhirse', 'Braunhirse', 'Hirseflocken'] },
-  { id: 'buchweizen', name: 'Buchweizen', category: 'getreide', aliases: ['Buchweizenmehl', 'Buchweizenflocken', 'Soba', 'Sobanudeln'] },
+  { id: 'buchweizen', name: 'Buchweizen', category: 'getreide', aliases: ['Buchweizenmehl', 'Buchweizenflocken', 'Soba', 'Sobanudeln', 'Heiden', 'Heidenmehl'] },
   { id: 'quinoa', name: 'Quinoa', category: 'getreide', aliases: ['Quinoaflocken', 'Kinwa', 'Reismelde'] },
   { id: 'amaranth', name: 'Amaranth', category: 'getreide', aliases: ['Amarant', 'Amaranthflocken', 'Gepuffter Amaranth'] },
   { id: 'mais-getreide', name: 'Mais', category: 'getreide', aliases: ['Maismehl', 'Maisgrieß', 'Polenta', 'Popcorn', 'Tortilla', 'Maisstärke'] },
@@ -280,7 +281,7 @@ export const PLANTS: Plant[] = [
   { id: 'vanille', name: 'Vanille', category: 'gewuerze', aliases: ['Vanilleschote', 'Vanilleschoten', 'Vanilleextrakt', 'Bourbon-Vanille'] },
   { id: 'chili', name: 'Chili', category: 'gewuerze', aliases: ['Chilis', 'Chiliflocken', 'Chilipulver', 'Chilischote', 'Chilischoten', 'Peperoncino'] },
   { id: 'cayennepfeffer', name: 'Cayennepfeffer', category: 'gewuerze', aliases: ['Cayenne', 'Cayenne-Pfeffer'] },
-  { id: 'piment', name: 'Piment', category: 'gewuerze', aliases: ['Nelkenpfeffer', 'Jamaikapfeffer', 'Allspice'] },
+  { id: 'piment', name: 'Piment', category: 'gewuerze', aliases: ['Nelkenpfeffer', 'Jamaikapfeffer', 'Allspice', 'Neugewürz'] },
   { id: 'wacholderbeere', name: 'Wacholderbeere', category: 'gewuerze', aliases: ['Wacholderbeeren', 'Wacholder', 'Kranewitt'] },
   { id: 'bockshornklee', name: 'Bockshornklee', category: 'gewuerze', aliases: ['Bockshornkleesamen', 'Fenugreek', 'Methi'] },
   { id: 'sumach', name: 'Sumach', category: 'gewuerze', aliases: ['Sumak', 'Schmack', 'Essigbaumgewürz'] },
@@ -304,7 +305,7 @@ export const PLANTS: Plant[] = [
   // ──────────────────────────────────────────────
   // PILZE (Mushrooms/Fungi) — 11 entries
   // ──────────────────────────────────────────────
-  { id: 'champignon', name: 'Champignon', category: 'pilze', aliases: ['Champignons', 'Egerling', 'Brauner Champignon', 'Weißer Champignon', 'Portobello'] },
+  { id: 'champignon', name: 'Champignon', category: 'pilze', aliases: ['Champignons', 'Egerling', 'Brauner Champignon', 'Weißer Champignon', 'Portobello', 'Schwammerl', 'Schwammerln'] },
   { id: 'pfifferling', name: 'Pfifferling', category: 'pilze', aliases: ['Pfifferlinge', 'Eierschwammerl', 'Reherl'] },
   { id: 'steinpilz', name: 'Steinpilz', category: 'pilze', aliases: ['Steinpilze', 'Herrenpilz'] },
   { id: 'shiitake', name: 'Shiitake', category: 'pilze', aliases: ['Shiitake-Pilz', 'Shiitakepilz'] },

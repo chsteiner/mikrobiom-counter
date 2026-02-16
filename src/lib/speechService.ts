@@ -20,7 +20,7 @@ export function createRecognition(callbacks: SpeechCallbacks): SpeechRecognition
   if (!SpeechRecognitionClass) return null;
 
   const recognition = new SpeechRecognitionClass();
-  recognition.lang = 'de-DE';
+  recognition.lang = 'de-AT';
   recognition.continuous = false;
   recognition.interimResults = true;
   recognition.maxAlternatives = 3;
