@@ -70,7 +70,7 @@ export const PLANTS: Plant[] = [
   { id: 'bittermelone', name: 'Bittermelone', category: 'gemuese', aliases: ['Goya', 'Bittergurke'] },
 
   // ──────────────────────────────────────────────
-  // OBST (Fruits) — 53 entries
+  // OBST (Fruits) — 55 entries
   // ──────────────────────────────────────────────
   { id: 'apfel', name: 'Apfel', category: 'obst', aliases: ['Äpfel', 'Apferl', 'Öpfel'] },
   { id: 'birne', name: 'Birne', category: 'obst', aliases: ['Birnen', 'Birnä', 'Kletzen', 'Kletze'] },
@@ -109,13 +109,15 @@ export const PLANTS: Plant[] = [
   { id: 'holunderbeere', name: 'Holunderbeere', category: 'obst', aliases: ['Holunderbeeren', 'Holunder', 'Holler', 'Fliederbeere'] },
   { id: 'preiselbeere', name: 'Preiselbeere', category: 'obst', aliases: ['Preiselbeeren', 'Granten'] },
   { id: 'cranberry', name: 'Cranberry', category: 'obst', aliases: ['Cranberries', 'Kranbeere', 'Moosbeere', 'Großfrüchtige Moosbeere'] },
-  { id: 'hagebutte', name: 'Hagebutte', category: 'obst', aliases: ['Hagebutten', 'Hetscherl', 'Hetschepetsch', 'Hagebuttentee'] },
+  { id: 'hagebutte', name: 'Hagebutte', category: 'obst', aliases: ['Hagebutten', 'Hetscherl', 'Hetschepetsch', 'Hetschipetsch', 'Hagebuttentee'] },
   { id: 'sanddorn', name: 'Sanddorn', category: 'obst', aliases: ['Sanddornbeeren'] },
   { id: 'rhabarber', name: 'Rhabarber', category: 'obst', aliases: ['Rhabarberstangen'] },
   { id: 'avocado', name: 'Avocado', category: 'obst', aliases: ['Avocados', 'Avokado'] },
   { id: 'olive', name: 'Olive', category: 'obst', aliases: ['Oliven'] },
   { id: 'mirabelle', name: 'Mirabelle', category: 'obst', aliases: ['Mirabellen', 'Kriacherl', 'Kriecherl'] },
   { id: 'ringlotte', name: 'Ringlotte', category: 'obst', aliases: ['Ringlotten', 'Reneklode', 'Renekloden', 'Ringloe'] },
+  { id: 'kornelkirsche', name: 'Kornelkirsche', category: 'obst', aliases: ['Kornelkirschen', 'Dirndl', 'Dirndln', 'Gelber Hartriegel'] },
+  { id: 'schlehe', name: 'Schlehe', category: 'obst', aliases: ['Schlehen', 'Schlehdorn', 'Schwarzdorn'] },
   { id: 'kumquat', name: 'Kumquat', category: 'obst', aliases: ['Kumquats', 'Zwergorange'] },
   { id: 'kaki', name: 'Kaki', category: 'obst', aliases: ['Kakis', 'Sharonfrucht', 'Persimone'] },
   { id: 'sternfrucht', name: 'Sternfrucht', category: 'obst', aliases: ['Karambole', 'Karambola'] },
@@ -179,7 +181,7 @@ export const PLANTS: Plant[] = [
   { id: 'lupinen', name: 'Lupinen', category: 'huelsenfruechte', aliases: ['Lupine', 'Lupinenbohne', 'Lupinenbohnen', 'Süßlupine'] },
   { id: 'mungobohnen', name: 'Mungobohnen', category: 'huelsenfruechte', aliases: ['Mungobohne', 'Mungbohne', 'Mungbohnen'] },
   { id: 'limabohnen', name: 'Limabohnen', category: 'huelsenfruechte', aliases: ['Limabohne', 'Butterbohne', 'Butterbohnen'] },
-  { id: 'pintobohnen', name: 'Pintobohnen', category: 'huelsenfruechte', aliases: ['Pintobohne', 'Wachtelbohne', 'Wachtelbohnen'] },
+  { id: 'pintobohnen', name: 'Pintobohnen', category: 'huelsenfruechte', aliases: ['Pintobohne', 'Wachtelbohne', 'Wachtelbohnen', 'Borlottibohne', 'Borlottibohnen'] },
   { id: 'gruene-bohnen', name: 'Grüne Bohnen', category: 'huelsenfruechte', aliases: ['Grüne Bohne', 'Buschbohnen', 'Stangenbohnen', 'Prinzessbohnen', 'Fisolen', 'Brechbohnen', 'Strankalan', 'Strankerl', 'Strankelen', 'Stranggn', 'Bohnscharl'] },
   { id: 'dicke-bohnen', name: 'Dicke Bohnen', category: 'huelsenfruechte', aliases: ['Dicke Bohne', 'Ackerbohne', 'Ackerbohnen', 'Saubohne', 'Saubohnen', 'Favabohne', 'Favabohnen', 'Puffbohne'] },
   { id: 'augenbohnen', name: 'Augenbohnen', category: 'huelsenfruechte', aliases: ['Augenbohne', 'Kuhbohne', 'Kuhbohnen', 'Black-Eyed Peas'] },
