@@ -40,7 +40,7 @@ export const PLANTS: Plant[] = [
   { id: 'steckruebe', name: 'Steckrübe', category: 'gemuese', aliases: ['Steckrüben', 'Kohlrübe', 'Wruke', 'Erdkohlrabi', 'Bodenkohlrabi'] },
   { id: 'rucola', name: 'Rucola', category: 'gemuese', aliases: ['Rukola', 'Rauke', 'Salatrauke'] },
   { id: 'feldsalat', name: 'Feldsalat', category: 'gemuese', aliases: ['Rapunzel', 'Vogerlsalat', 'Nüssler', 'Nüsslisalat', 'Ackersalat'] },
-  { id: 'kopfsalat', name: 'Kopfsalat', category: 'gemuese', aliases: ['Butterkopfsalat', 'Häuptelsalat', 'Häuptlsalat', 'Grüner Salat'] },
+  { id: 'kopfsalat', name: 'Kopfsalat', category: 'gemuese', aliases: ['Salat', 'Butterkopfsalat', 'Häuptelsalat', 'Häuptlsalat', 'Grüner Salat'] },
   { id: 'eisbergsalat', name: 'Eisbergsalat', category: 'gemuese', aliases: ['Eissalat', 'Krachsalat', 'Iceberg'] },
   { id: 'endivie', name: 'Endivie', category: 'gemuese', aliases: ['Endiviensalat', 'Endivien', 'Frisée'] },
   { id: 'chicoree', name: 'Chicorée', category: 'gemuese', aliases: ['Schikoree', 'Chicory', 'Brüsseler Salat'] },

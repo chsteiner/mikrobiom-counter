@@ -2,12 +2,37 @@
   import { getSettingsStore } from '../stores/settingsStore.svelte';
   import { exportJSON, exportCSV, importJSON, clearAllData } from '../lib/exportService';
   import { getWeekStore } from '../stores/weekStore.svelte';
+  import { PLANTS } from '../data/plants';
+  import { CATEGORY_LABELS, type PlantCategory } from '../data/types';
 
   const store = getSettingsStore();
   const weekStore = getWeekStore();
 
   let importMessage = $state('');
   let showDeleteConfirm = $state(false);
+
+  const plantCount = PLANTS.length;
+  const categoryCount = Object.keys(CATEGORY_LABELS).length;
+
+  // Count plants per category
+  const categoryCounts: Record<string, number> = {};
+  for (const p of PLANTS) {
+    categoryCounts[p.category] = (categoryCounts[p.category] || 0) + 1;
+  }
+
+  type TipEntry = { cat: PlantCategory; tips: string[] };
+  const tips: TipEntry[] = [
+    { cat: 'gewuerze', tips: ['Jedes Gewürz zählt einzeln!', 'Pfeffer, Kurkuma, Zimt, Paprikapulver, Kreuzkümmel ...', 'Auch Gewürzmischungen: Curry, Garam Masala, Za\'atar'] },
+    { cat: 'genuss', tips: ['Kaffee = Kaffeebohne (Pflanze!)', 'Dunkle Schokolade = Kakao', 'Grüner, schwarzer, weißer Tee = Camellia', 'Mate'] },
+    { cat: 'huelsenfruechte', tips: ['Tofu, Tempeh, Miso, Sojasauce = Sojabohne', 'Erdnüsse sind Hülsenfrüchte', 'Hummus = Kichererbsen', 'Jede Bohnenart zählt einzeln (Kidney, schwarze, weiße ...)'] },
+    { cat: 'getreide', tips: ['Brot, Pasta, Couscous = Weizen', 'Haferflocken, Porridge = Hafer', 'Reis, Mais/Popcorn, Hirse ...', 'Pseudogetreide: Quinoa, Amaranth, Buchweizen'] },
+    { cat: 'kraeuter', tips: ['Jedes Kraut zählt einzeln', 'Auch als Tee: Kamille, Pfefferminze, Salbei', 'Wildkräuter: Brennnessel, Löwenzahn, Bärlauch'] },
+    { cat: 'samen', tips: ['Sesam (auch Tahini!)', 'Leinsamen, Chiasamen, Hanfsamen', 'Senf = Senfkörner', 'Mohn, Sonnenblumenkerne, Kürbiskerne'] },
+    { cat: 'nuesse', tips: ['Jede Nuss einzeln: Walnuss, Cashew, Mandel ...', 'Kokosnuss zählt auch!', 'Muskatnuss (das Gewürz)'] },
+    { cat: 'pilze', tips: ['Pilze sind keine Pflanzen, zählen aber trotzdem!', 'Champignon, Shiitake, Austernpilz, Pfifferling ...'] },
+    { cat: 'gemuese', tips: ['Algen zählen: Nori (Sushi!), Wakame', 'Sprossen: Sojasprossen, Alfalfa', 'Salat = Kopfsalat, Feldsalat, Rucola ... jeder einzeln'] },
+    { cat: 'obst', tips: ['Oliven zählen', 'Avocado ist eine Frucht', 'Trockenfrüchte zählen (Datteln, Rosinen ...)'] },
+  ];
 
   async function handleImport(e: Event) {
     const input = e.target as HTMLInputElement;
@@ -38,6 +63,50 @@
 
 <div class="settings-view">
   <h2>Einstellungen</h2>
+
+  <section class="setting-group guide">
+    <details>
+      <summary class="guide-header">
+        <span class="guide-title">Was zählt alles?</span>
+        <span class="guide-subtitle">{plantCount} Pflanzen in {categoryCount} Kategorien</span>
+      </summary>
+      <div class="guide-content">
+        <p class="guide-intro">
+          Das <em>American Gut Project</em> (2018, 10.000+ Teilnehmer) hat gezeigt: Wer 30+ verschiedene Pflanzenarten pro Woche isst, hat ein signifikant diverseres Darmmikrobiom als jemand mit weniger als 10.
+        </p>
+        <p class="guide-intro">
+          Die Studie hat schlicht verschiedene Pflanzenarten pro Woche gezählt. Diese App macht es genauso: jede Art = 1 Punkt, unabhängig von Menge oder Zubereitung.
+        </p>
+
+        <h3 class="guide-section-title">Was zählt?</h3>
+        <p class="guide-rule">Ganze oder minimal verarbeitete Pflanzen. Frisch, getrocknet, tiefgekühlt, eingelegt oder fermentiert.</p>
+
+        {#each tips as { cat, tips: items }}
+          <div class="tip-category">
+            <h4>{CATEGORY_LABELS[cat]} <span class="tip-count">({categoryCounts[cat]})</span></h4>
+            <ul>
+              {#each items as item}
+                <li>{item}</li>
+              {/each}
+            </ul>
+          </div>
+        {/each}
+
+        <h3 class="guide-section-title">Was zählt nicht?</h3>
+        <ul class="exclusion-list">
+          <li>Ultra-verarbeitete Produkte (Chips, Schokoriegel, Fertiggerichte)</li>
+          <li>Fruchtsäfte, Sirup, raffinierter Zucker</li>
+          <li>Weißmehlprodukte (Weißbrot, normale Pasta aus Auszugsmehl)</li>
+          <li>Isolierte Extrakte (Öle, Nahrungsergänzungsmittel)</li>
+        </ul>
+
+        <p class="guide-source">
+          Quelle: McDonald et al., <em>American Gut: an Open Platform for Citizen Science Microbiome Research</em>, mSystems 2018.
+          Die Zählung folgt der Originalstudie: jede Pflanzenart zählt gleich, ohne Gewichtung.
+        </p>
+      </div>
+    </details>
+  </section>
 
   <section class="setting-group">
     <label class="setting-row">
@@ -209,5 +278,128 @@
 
   .info p {
     margin-bottom: 0.25rem;
+  }
+
+  /* Guide / Glossary */
+  .guide {
+    padding: 0;
+  }
+
+  .guide details {
+    width: 100%;
+  }
+
+  .guide summary {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    padding-right: 2rem;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+  }
+
+  .guide summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .guide summary::after {
+    content: '›';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    transition: transform 0.2s;
+  }
+
+  .guide details[open] summary::after {
+    transform: translateY(-50%) rotate(90deg);
+  }
+
+  .guide-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .guide-subtitle {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    margin-top: 2px;
+  }
+
+  .guide-content {
+    padding: 0 1rem 1rem;
+  }
+
+  .guide-intro {
+    font-size: 0.82rem;
+    color: var(--color-text);
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-category {
+    margin-bottom: 0.6rem;
+  }
+
+  .tip-category h4 {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.2rem;
+  }
+
+  .tip-count {
+    font-weight: 400;
+    color: var(--color-text-muted);
+  }
+
+  .tip-category ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .tip-category li {
+    font-size: 0.78rem;
+    color: var(--color-text);
+    line-height: 1.4;
+    padding: 1px 0;
+  }
+
+  .guide-section-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .guide-rule {
+    font-size: 0.78rem;
+    color: var(--color-text);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .exclusion-list {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .exclusion-list li {
+    font-size: 0.78rem;
+    color: var(--color-text);
+    line-height: 1.4;
+    padding: 1px 0;
+  }
+
+  .guide-source {
+    margin-top: 0.75rem;
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    border-top: 1px solid var(--color-border);
+    padding-top: 0.6rem;
   }
 </style>

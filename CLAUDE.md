@@ -2,8 +2,18 @@
 
 ## Projekt
 
-Mikrobiom Counter — PWA zum Tracken von Pflanzenvielfalt pro Woche (Ziel: 30 Pflanzen).
+Mikrobiom Counter: PWA zum Tracken von Pflanzenvielfalt pro Woche (Ziel: 30 Pflanzen).
 Prototyp-Phase: wird einige Wochen von echten Usern getestet, danach native Android App.
+
+## Wissenschaftliche Grundlage + Design-Entscheidungen
+
+Siehe `knowledge/` Ordner für die vollständige Dokumentation:
+- `knowledge/science.md` - Originalstudie, Methodik, was die Daten sagen, spätere Interpretationen
+- `knowledge/decisions.md` - Alle Design-Entscheidungen (D1-D6) mit Begründung und Tradeoffs
+- `knowledge/data.md` - Pflanzendatenbank: Struktur, Alias-Typen, Suchindex, bekannte Probleme
+- `knowledge/journal.md` - Tester-Feedback, Savepoints, Dead Ends, offene Fragen
+
+**Kurzfassung:** Jede Pflanzenart = 1 Punkt (wie Originalstudie, keine Viertelpunkte). Feste Liste mit Aliasen statt LLM. Ganze/minimal verarbeitete Pflanzen zählen, ultra-verarbeitete nicht.
 
 ## Befehle
 
@@ -44,10 +54,8 @@ src/
 
 - Pflanzen-IDs: lowercase, keine Umlaute (ae/oe/ue/ss), Bindestriche statt Leerzeichen
 - Wochen-Keys: ISO 8601 Format "2026-W08", Montag-Start
-- Kategorien: gemuese, obst, pilze, nuesse, samen, huelsenfruechte, getreide, kraeuter, gewuerze, genuss
-- Voice Input braucht Internet (Chrome sendet Audio an Google). Offline → manueller Fallback.
-- Alle Daten client-side in IndexedDB (entries + settings), kein Backend.
-- Duplikat-Erkennung: `addEntry()` returned `'added' | 'duplicate'`, UI zeigt Toast.
+- Alle Daten client-side in IndexedDB, kein Backend
+- Pflanzendatenbank-Details: siehe `knowledge/data.md`
 
 ## Bekannte Pitfalls
 
