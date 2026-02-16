@@ -1,24 +1,27 @@
 <script lang="ts">
   import NavBar from './components/NavBar.svelte';
+  import UpdateBanner from './components/UpdateBanner.svelte';
   import HomeView from './views/HomeView.svelte';
   import ListView from './views/ListView.svelte';
   import StatsView from './views/StatsView.svelte';
   import SettingsView from './views/SettingsView.svelte';
-  import { getWeekStore } from './stores/weekStore';
+  import { getWeekStore } from './stores/weekStore.svelte';
 
   type View = 'home' | 'list' | 'stats' | 'settings';
   let currentView = $state<View>('home');
 
   const store = getWeekStore();
 
-  async function handleAdd(plantId: string, plantName: string, source: 'voice' | 'manual') {
-    await store.addEntry(plantId, plantName, source);
+  async function handleAdd(plantId: string, plantName: string, source: 'voice' | 'manual'): Promise<'added' | 'duplicate'> {
+    return store.addEntry(plantId, plantName, source);
   }
 
   async function handleRemove(id: number) {
     await store.removeEntry(id);
   }
 </script>
+
+<UpdateBanner />
 
 <header class="app-header">
   <h1>Mikrobiom Counter</h1>

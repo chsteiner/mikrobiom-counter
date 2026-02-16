@@ -1,9 +1,11 @@
 import { db } from '../data/db';
 import { getISOWeekKey } from '../lib/weekUtils';
+import { getSettingsStore } from './settingsStore.svelte';
 import type { PlantEntry, WeekSummary } from '../data/types';
 
 const currentWeekKey = $state(getISOWeekKey());
 let entries = $state<PlantEntry[]>([]);
+const { settings } = getSettingsStore();
 
 async function loadEntries(weekKey: string) {
   entries = await db.entries.where('weekKey').equals(weekKey).sortBy('timestamp');
@@ -18,7 +20,7 @@ function getSummary(): WeekSummary {
     weekKey: currentWeekKey,
     uniquePlants: [...seen],
     count: seen.size,
-    goal: 30,
+    goal: settings.weeklyGoal,
     entries,
   };
 }
@@ -32,7 +34,10 @@ export function getWeekStore() {
     get entries() { return entries; },
     get summary(): WeekSummary { return getSummary(); },
 
-    async addEntry(plantId: string, plantName: string, source: 'voice' | 'manual') {
+    async addEntry(plantId: string, plantName: string, source: 'voice' | 'manual'): Promise<'added' | 'duplicate'> {
+      const isDuplicate = entries.some(e => e.plantId === plantId);
+      if (isDuplicate) return 'duplicate';
+
       await db.entries.add({
         plantId,
         plantName,
@@ -41,6 +46,7 @@ export function getWeekStore() {
         source,
       });
       await loadEntries(currentWeekKey);
+      return 'added';
     },
 
     async removeEntry(id: number) {

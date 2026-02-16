@@ -4,9 +4,10 @@
   interface Props {
     entries: PlantEntry[];
     onremove: (id: number) => void;
+    newPlantIds?: Set<string>;
   }
 
-  let { entries, onremove }: Props = $props();
+  let { entries, onremove, newPlantIds = new Set() }: Props = $props();
 
   // Show most recent first, deduplicated by plantId (keep latest)
   let recentUnique = $derived.by(() => {
@@ -28,7 +29,10 @@
     if (min < 60) return `vor ${min} Min.`;
     const hours = Math.floor(min / 60);
     if (hours < 24) return `vor ${hours} Std.`;
-    return 'heute';
+    const days = Math.floor(hours / 24);
+    if (days === 1) return 'gestern';
+    if (days < 7) return `vor ${days} Tagen`;
+    return new Date(ts).toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'short' });
   }
 </script>
 
@@ -38,7 +42,12 @@
     <ul>
       {#each recentUnique as entry}
         <li>
-          <span class="entry-name">{entry.plantName}</span>
+          <span class="entry-name">
+            {entry.plantName}
+            {#if newPlantIds.has(entry.plantId)}
+              <span class="new-badge">Neu</span>
+            {/if}
+          </span>
           <span class="entry-time">{timeAgo(entry.timestamp)}</span>
           <button class="entry-remove" onclick={() => {
             if (entry.id != null) onremove(entry.id);
@@ -80,6 +89,20 @@
   .entry-name {
     flex: 1;
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .new-badge {
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(45, 106, 79, 0.1);
+    padding: 1px 6px;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 
   .entry-time {

@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { db } from '../data/db';
-  import { getISOWeekKey, getWeekKeyOffset } from '../lib/weekUtils';
-  import { getSettingsStore } from '../stores/settingsStore';
+  import { getISOWeekKey } from '../lib/weekUtils';
+  import { getSettingsStore } from '../stores/settingsStore.svelte';
+  import { calculateStreak, getWeekHistory } from '../lib/statsUtils';
   import WeekChart from '../components/WeekChart.svelte';
-  import type { PlantEntry } from '../data/types';
 
   const { settings } = getSettingsStore();
 
@@ -13,20 +12,13 @@
   }
 
   let weekHistory = $state<WeekData[]>([]);
-  let allEntries = $state<PlantEntry[]>([]);
+  let streak = $state(0);
 
   async function loadHistory() {
-    allEntries = await db.entries.toArray();
-
-    // Build last 8 weeks
-    const weeks: WeekData[] = [];
-    for (let i = 7; i >= 0; i--) {
-      const weekKey = getWeekKeyOffset(i);
-      const weekEntries = allEntries.filter(e => e.weekKey === weekKey);
-      const unique = new Set(weekEntries.map(e => e.plantId));
-      weeks.push({ weekKey, count: unique.size });
-    }
-    weekHistory = weeks;
+    [weekHistory, streak] = await Promise.all([
+      getWeekHistory(8),
+      calculateStreak(settings.streakThreshold),
+    ]);
   }
 
   let currentWeekCount = $derived(
@@ -42,18 +34,6 @@
   let best = $derived(
     Math.max(0, ...weekHistory.map(w => w.count))
   );
-
-  let streak = $derived.by(() => {
-    let count = 0;
-    for (let i = weekHistory.length - 1; i >= 0; i--) {
-      if (weekHistory[i].count >= settings.streakThreshold) {
-        count++;
-      } else {
-        break;
-      }
-    }
-    return count;
-  });
 
   $effect(() => {
     loadHistory();

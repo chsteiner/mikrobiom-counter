@@ -63,7 +63,11 @@ export const PLANTS: Plant[] = [
   { id: 'daikon', name: 'Daikon', category: 'gemuese', aliases: ['Japanischer Rettich', 'Winterrettich', 'Mooli'] },
   { id: 'jalapeno', name: 'Jalapeño', category: 'gemuese', aliases: ['Jalapeno', 'Jalapeños', 'Jalapenos'] },
   { id: 'peperoni', name: 'Peperoni', category: 'gemuese', aliases: ['Peperoncini', 'Pfefferoni'] },
-  { id: 'alge', name: 'Alge', category: 'gemuese', aliases: ['Algen', 'Nori', 'Wakame', 'Kombu', 'Seetang'] },
+  { id: 'nori', name: 'Nori', category: 'gemuese', aliases: ['Nori-Alge', 'Sushi-Blatt', 'Algenblatt'] },
+  { id: 'wakame', name: 'Wakame', category: 'gemuese', aliases: ['Wakame-Alge', 'See-Senf'] },
+  { id: 'kombu', name: 'Kombu', category: 'gemuese', aliases: ['Kombu-Alge', 'Seetang', 'Kelp', 'Alge', 'Algen'] },
+  { id: 'lotuswurzel', name: 'Lotuswurzel', category: 'gemuese', aliases: ['Lotus', 'Lotosblume'] },
+  { id: 'bittermelone', name: 'Bittermelone', category: 'gemuese', aliases: ['Goya', 'Bittergurke'] },
 
   // ──────────────────────────────────────────────
   // OBST (Fruits) — 52 entries
@@ -100,12 +104,12 @@ export const PLANTS: Plant[] = [
   { id: 'papaya', name: 'Papaya', category: 'obst', aliases: ['Papayas', 'Baummelone'] },
   { id: 'litschi', name: 'Litschi', category: 'obst', aliases: ['Litschis', 'Lychee', 'Lychees', 'Litchi'] },
   { id: 'drachenfrucht', name: 'Drachenfrucht', category: 'obst', aliases: ['Drachenfrüchte', 'Pitaya', 'Pitahaya'] },
-  { id: 'kokosnuss', name: 'Kokosnuss', category: 'obst', aliases: ['Kokosnüsse', 'Kokos', 'Kokosflocken', 'Kokosraspeln', 'Kokosmilch'] },
+  { id: 'kokosnuss', name: 'Kokosnuss', category: 'obst', aliases: ['Kokosnüsse', 'Kokos', 'Kokosflocken', 'Kokosraspeln', 'Kokosraspel', 'Kokosmilch', 'Kokoschips', 'Kokosöl'] },
   { id: 'quitte', name: 'Quitte', category: 'obst', aliases: ['Quitten'] },
   { id: 'holunderbeere', name: 'Holunderbeere', category: 'obst', aliases: ['Holunderbeeren', 'Holunder', 'Holler', 'Fliederbeere'] },
   { id: 'preiselbeere', name: 'Preiselbeere', category: 'obst', aliases: ['Preiselbeeren', 'Granten'] },
   { id: 'cranberry', name: 'Cranberry', category: 'obst', aliases: ['Cranberries', 'Kranbeere', 'Moosbeere', 'Großfrüchtige Moosbeere'] },
-  { id: 'hagebutte', name: 'Hagebutte', category: 'obst', aliases: ['Hagebutten', 'Hetscherl', 'Hetschepetsch'] },
+  { id: 'hagebutte', name: 'Hagebutte', category: 'obst', aliases: ['Hagebutten', 'Hetscherl', 'Hetschepetsch', 'Hagebuttentee'] },
   { id: 'sanddorn', name: 'Sanddorn', category: 'obst', aliases: ['Sanddornbeeren'] },
   { id: 'rhabarber', name: 'Rhabarber', category: 'obst', aliases: ['Rhabarberstangen'] },
   { id: 'avocado', name: 'Avocado', category: 'obst', aliases: ['Avocados', 'Avokado'] },
@@ -120,6 +124,8 @@ export const PLANTS: Plant[] = [
   { id: 'goji', name: 'Goji', category: 'obst', aliases: ['Gojibeere', 'Gojibeeren', 'Goji-Beere', 'Goji-Beeren', 'Wolfsbeere'] },
   { id: 'maulbeere', name: 'Maulbeere', category: 'obst', aliases: ['Maulbeeren'] },
   { id: 'pomelo', name: 'Pomelo', category: 'obst', aliases: ['Pomelos', 'Pummelo'] },
+  { id: 'aronia', name: 'Aronia', category: 'obst', aliases: ['Aroniabeere', 'Apfelbeere', 'Schwarze Eberesche'] },
+  { id: 'kaktusfeige', name: 'Kaktusfeige', category: 'obst', aliases: ['Kaktusfeigen', 'Opuntie'] },
 
   // ──────────────────────────────────────────────
   // NÜSSE (Nuts) — 15 entries
@@ -136,7 +142,6 @@ export const PLANTS: Plant[] = [
   { id: 'maroni', name: 'Maroni', category: 'nuesse', aliases: ['Esskastanie', 'Esskastanien', 'Kastanie', 'Kastanien', 'Edelkastanie', 'Marroni'] },
   { id: 'muskatnuss', name: 'Muskatnuss', category: 'nuesse', aliases: ['Muskatnüsse', 'Muskat'] },
   { id: 'pinienkerne', name: 'Pinienkerne', category: 'nuesse', aliases: ['Pinienkern', 'Piniennüsse', 'Pignoli'] },
-  { id: 'kokosnuss-nuss', name: 'Kokosnuss', category: 'nuesse', aliases: ['Kokosnüsse', 'Kokosraspel', 'Kokosraspeln', 'Kokoschips'] },
   { id: 'zedernnuss', name: 'Zedernnuss', category: 'nuesse', aliases: ['Zedernnüsse', 'Sibirische Zedernnuss'] },
   { id: 'tigernuss', name: 'Tigernuss', category: 'nuesse', aliases: ['Tigernüsse', 'Erdmandel', 'Erdmandeln', 'Chufa'] },
 
@@ -147,7 +152,7 @@ export const PLANTS: Plant[] = [
   { id: 'kuerbiskerne', name: 'Kürbiskerne', category: 'samen', aliases: ['Kürbiskern', 'Kürbissamen'] },
   { id: 'leinsamen', name: 'Leinsamen', category: 'samen', aliases: ['Leinsaat', 'Flachssamen', 'Leinöl'] },
   { id: 'chiasamen', name: 'Chiasamen', category: 'samen', aliases: ['Chia', 'Chia-Samen', 'Chia Samen'] },
-  { id: 'sesam', name: 'Sesam', category: 'samen', aliases: ['Sesamkörner', 'Sesamsamen', 'Sesamkerne', 'Sesamöl', 'Tahin', 'Tahini'] },
+  { id: 'sesam', name: 'Sesam', category: 'samen', aliases: ['Sesamkörner', 'Sesamsamen', 'Sesamkerne', 'Sesamöl', 'Tahin', 'Tahini', 'Sesammus', 'Halva'] },
   { id: 'hanfsamen', name: 'Hanfsamen', category: 'samen', aliases: ['Hanfnüsschen', 'Hanfherzen', 'Hanfsaat'] },
   { id: 'mohnsamen', name: 'Mohnsamen', category: 'samen', aliases: ['Mohn', 'Blaumohn', 'Backmohn'] },
   { id: 'schwarzkuemmel', name: 'Schwarzkümmel', category: 'samen', aliases: ['Schwarzkümmelsamen', 'Nigella', 'Nigellasamen'] },
@@ -158,6 +163,7 @@ export const PLANTS: Plant[] = [
   { id: 'brokkoli-samen', name: 'Brokkolisamen', category: 'samen', aliases: ['Brokkolisprossen', 'Brokkoli-Sprossen'] },
   { id: 'traubenkerne', name: 'Traubenkerne', category: 'samen', aliases: ['Traubenkernöl'] },
   { id: 'hanfnuesse', name: 'Hanfnüsse', category: 'samen', aliases: ['Geschälte Hanfsamen'] },
+  { id: 'alfalfa', name: 'Alfalfa', category: 'samen', aliases: ['Luzerne', 'Alfalfasprossen', 'Luzernesprossen'] },
 
   // ──────────────────────────────────────────────
   // HÜLSENFRÜCHTE (Legumes) — 17 entries
@@ -179,6 +185,7 @@ export const PLANTS: Plant[] = [
   { id: 'augenbohnen', name: 'Augenbohnen', category: 'huelsenfruechte', aliases: ['Augenbohne', 'Kuhbohne', 'Kuhbohnen', 'Black-Eyed Peas'] },
   { id: 'azukibohnen', name: 'Azukibohnen', category: 'huelsenfruechte', aliases: ['Azukibohne', 'Adzukibohne', 'Adzukibohnen'] },
   { id: 'kichererbsenmehl', name: 'Kichererbsenmehl', category: 'huelsenfruechte', aliases: ['Besan', 'Grammehl'] },
+  { id: 'johannisbrot', name: 'Johannisbrot', category: 'huelsenfruechte', aliases: ['Carob', 'Karob', 'Johannisbrotbaum'] },
 
   // ──────────────────────────────────────────────
   // GETREIDE (Grains) — 26 entries
@@ -245,9 +252,14 @@ export const PLANTS: Plant[] = [
   { id: 'ysop', name: 'Ysop', category: 'kraeuter', aliases: ['Josefskraut', 'Eisop'] },
   { id: 'waldmeister', name: 'Waldmeister', category: 'kraeuter', aliases: ['Maikraut'] },
   { id: 'kapuzinerkresse', name: 'Kapuzinerkresse', category: 'kraeuter', aliases: ['Kapuzinerkresseblüten'] },
-  { id: 'brennnessel', name: 'Brennnessel', category: 'kraeuter', aliases: ['Brennnesseln', 'Urtica'] },
+  { id: 'brennnessel', name: 'Brennnessel', category: 'kraeuter', aliases: ['Brennnesseln', 'Urtica', 'Brennnesseltee'] },
   { id: 'giersch', name: 'Giersch', category: 'kraeuter', aliases: ['Geißfuß', 'Dreiblatt'] },
   { id: 'vogelmiere', name: 'Vogelmiere', category: 'kraeuter', aliases: ['Hühnerdarm', 'Sternmiere'] },
+  { id: 'kamille', name: 'Kamille', category: 'kraeuter', aliases: ['Kamillentee', 'Echte Kamille', 'Kamillenblüten'] },
+  { id: 'hibiskus', name: 'Hibiskus', category: 'kraeuter', aliases: ['Hibiskustee', 'Hibiskusblüte', 'Malventee'] },
+  { id: 'rooibos', name: 'Rooibos', category: 'kraeuter', aliases: ['Rotbusch', 'Rotbuschtee', 'Rooibostee'] },
+  { id: 'gundermann', name: 'Gundermann', category: 'kraeuter', aliases: ['Gundelrebe', 'Erdefeu'] },
+  { id: 'spitzwegerich', name: 'Spitzwegerich', category: 'kraeuter', aliases: ['Wegerich', 'Breitwegerich'] },
 
   // ──────────────────────────────────────────────
   // GEWÜRZE (Spices) — 37 entries
@@ -289,4 +301,27 @@ export const PLANTS: Plant[] = [
   { id: 'annatto', name: 'Annatto', category: 'gewuerze', aliases: ['Anatto', 'Bixa', 'Achote'] },
   { id: 'rauchsalz', name: 'Rauchsalz', category: 'gewuerze', aliases: ['Geräuchertes Salz', 'Smoked Salt'] },
   { id: 'berbere', name: 'Berbere', category: 'gewuerze', aliases: ['Berberé', 'Äthiopische Gewürzmischung'] },
+  { id: 'kapern', name: 'Kapern', category: 'gewuerze', aliases: ['Kapernäpfel', 'Kaper'] },
+
+  // ──────────────────────────────────────────────
+  // PILZE (Mushrooms/Fungi) — 10 entries
+  // ──────────────────────────────────────────────
+  { id: 'champignon', name: 'Champignon', category: 'pilze', aliases: ['Champignons', 'Egerling', 'Brauner Champignon', 'Weißer Champignon', 'Portobello'] },
+  { id: 'pfifferling', name: 'Pfifferling', category: 'pilze', aliases: ['Pfifferlinge', 'Eierschwammerl', 'Reherl'] },
+  { id: 'steinpilz', name: 'Steinpilz', category: 'pilze', aliases: ['Steinpilze', 'Herrenpilz'] },
+  { id: 'shiitake', name: 'Shiitake', category: 'pilze', aliases: ['Shiitake-Pilz', 'Shiitakepilz'] },
+  { id: 'austernpilz', name: 'Austernpilz', category: 'pilze', aliases: ['Austernpilze', 'Austernseitling', 'Kalbfleischpilz'] },
+  { id: 'kraeuterseitling', name: 'Kräuterseitling', category: 'pilze', aliases: ['Kräuterseitlinge', 'Königsausternpilz'] },
+  { id: 'morchel', name: 'Morchel', category: 'pilze', aliases: ['Morcheln', 'Speisemorchel', 'Spitzmorchel'] },
+  { id: 'enoki', name: 'Enoki', category: 'pilze', aliases: ['Enokipilz', 'Samtfußrübling', 'Enokitake'] },
+  { id: 'trueffel', name: 'Trüffel', category: 'pilze', aliases: ['Trüffeln', 'Schwarzer Trüffel', 'Weißer Trüffel', 'Trüffelöl'] },
+  { id: 'judasohr', name: 'Judasohr', category: 'pilze', aliases: ['Mu-Err', 'Mu Err', 'Wolkenohrpilz', 'China-Morchel', 'Holunderpilz'] },
+
+  // ──────────────────────────────────────────────
+  // GENUSSMITTEL (Polyphenol-rich beverages) — 4 entries
+  // ──────────────────────────────────────────────
+  { id: 'kaffee', name: 'Kaffee', category: 'genuss', aliases: ['Kaffeebohnen', 'Espresso', 'Filterkaffee', 'Cappuccino', 'Latte'] },
+  { id: 'kakao', name: 'Kakao', category: 'genuss', aliases: ['Kakaobohnen', 'Kakaonibs', 'Kakaopulver', 'Dunkle Schokolade', 'Zartbitterschokolade'] },
+  { id: 'tee', name: 'Tee (Camellia)', category: 'genuss', aliases: ['Grüner Tee', 'Schwarzer Tee', 'Weißer Tee', 'Matcha', 'Oolong', 'Earl Grey', 'Darjeeling'] },
+  { id: 'mate', name: 'Mate', category: 'genuss', aliases: ['Matetee', 'Yerba Mate', 'Club Mate'] },
 ];

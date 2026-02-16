@@ -18,12 +18,13 @@ export async function exportJSON(): Promise<void> {
 
 export async function exportCSV(): Promise<void> {
   const entries = await db.entries.toArray();
+  const esc = (s: string) => `"${s.replace(/"/g, '""')}"`;
   const header = 'Datum,Pflanze,Kategorie,Kalenderwoche,Eingabeart';
   const rows = entries.map(e => {
     const plant = PLANTS.find(p => p.id === e.plantId);
     const cat = plant?.category ?? '';
     const date = new Date(e.timestamp).toLocaleString('de-DE');
-    return `${date},${e.plantName},${cat},${e.weekKey},${e.source}`;
+    return [date, e.plantName, cat, e.weekKey, e.source].map(esc).join(',');
   });
   downloadFile(
     [header, ...rows].join('\n'),
@@ -32,21 +33,40 @@ export async function exportCSV(): Promise<void> {
   );
 }
 
-export async function importJSON(file: File): Promise<number> {
+export async function importJSON(file: File): Promise<{ added: number; skipped: number }> {
   const text = await file.text();
   const data = JSON.parse(text);
   if (!data.entries || !Array.isArray(data.entries)) {
     throw new Error('Ungültiges Exportformat');
   }
-  const entries: PlantEntry[] = data.entries.map((e: PlantEntry) => ({
-    plantId: e.plantId,
-    plantName: e.plantName,
-    weekKey: e.weekKey,
-    timestamp: e.timestamp,
-    source: e.source,
-  }));
-  await db.entries.bulkAdd(entries);
-  return entries.length;
+
+  // Build set of existing entries for dedup
+  const existing = await db.entries.toArray();
+  const existingKeys = new Set(
+    existing.map(e => `${e.plantId}|${e.weekKey}|${e.timestamp}`)
+  );
+
+  const toAdd: PlantEntry[] = [];
+  let skipped = 0;
+  for (const e of data.entries) {
+    const key = `${e.plantId}|${e.weekKey}|${e.timestamp}`;
+    if (existingKeys.has(key)) {
+      skipped++;
+    } else {
+      toAdd.push({
+        plantId: e.plantId,
+        plantName: e.plantName,
+        weekKey: e.weekKey,
+        timestamp: e.timestamp,
+        source: e.source,
+      });
+    }
+  }
+
+  if (toAdd.length > 0) {
+    await db.entries.bulkAdd(toAdd);
+  }
+  return { added: toAdd.length, skipped };
 }
 
 export async function clearAllData(): Promise<void> {

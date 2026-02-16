@@ -6,17 +6,21 @@ export type PlantCategory =
   | 'huelsenfruechte'
   | 'getreide'
   | 'kraeuter'
-  | 'gewuerze';
+  | 'gewuerze'
+  | 'pilze'
+  | 'genuss';
 
 export const CATEGORY_LABELS: Record<PlantCategory, string> = {
   gemuese: 'Gemüse',
   obst: 'Obst',
+  pilze: 'Pilze',
   nuesse: 'Nüsse',
   samen: 'Samen',
   huelsenfruechte: 'Hülsenfrüchte',
   getreide: 'Getreide',
   kraeuter: 'Kräuter',
   gewuerze: 'Gewürze',
+  genuss: 'Genussmittel',
 };
 
 export interface Plant {

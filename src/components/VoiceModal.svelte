@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { untrack } from 'svelte';
   import { isSpeechAvailable, isOnline, createRecognition } from '../lib/speechService';
   import { parseTranscript } from '../lib/transcriptParser';
   import { matchPlant, type MatchResult } from '../lib/plantMatcher';
@@ -101,20 +102,16 @@
   }
 
   function retry() {
-    state = 'ready';
     errorMessage = '';
     matches = [];
     selected = new Set();
+    startListening();
   }
 
-  // Auto-start listening when modal opens
+  // Start listening on mount, cleanup on unmount
   $effect(() => {
-    if (state === 'ready') {
-      startListening();
-    }
-    return () => {
-      stopListening();
-    };
+    untrack(() => startListening());
+    return () => stopListening();
   });
 </script>
 

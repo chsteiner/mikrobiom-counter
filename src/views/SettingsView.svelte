@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { getSettingsStore } from '../stores/settingsStore';
+  import { getSettingsStore } from '../stores/settingsStore.svelte';
   import { exportJSON, exportCSV, importJSON, clearAllData } from '../lib/exportService';
-  import { getWeekStore } from '../stores/weekStore';
+  import { getWeekStore } from '../stores/weekStore.svelte';
 
   const store = getSettingsStore();
   const weekStore = getWeekStore();
@@ -15,8 +15,12 @@
     if (!file) return;
 
     try {
-      const count = await importJSON(file);
-      importMessage = `${count} Einträge importiert.`;
+      const { added, skipped } = await importJSON(file);
+      const parts: string[] = [];
+      if (added > 0) parts.push(`${added} Einträge importiert`);
+      if (skipped > 0) parts.push(`${skipped} Duplikate übersprungen`);
+      importMessage = parts.join(', ') + '.';
+      if (added === 0 && skipped > 0) importMessage = `Alle ${skipped} Einträge waren bereits vorhanden.`;
       await weekStore.refresh();
     } catch (err) {
       importMessage = `Fehler: ${err instanceof Error ? err.message : 'Unbekannt'}`;
