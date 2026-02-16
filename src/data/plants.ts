@@ -179,7 +179,7 @@ export const PLANTS: Plant[] = [
   { id: 'mungobohnen', name: 'Mungobohnen', category: 'huelsenfruechte', aliases: ['Mungobohne', 'Mungbohne', 'Mungbohnen'] },
   { id: 'limabohnen', name: 'Limabohnen', category: 'huelsenfruechte', aliases: ['Limabohne', 'Butterbohne', 'Butterbohnen'] },
   { id: 'pintobohnen', name: 'Pintobohnen', category: 'huelsenfruechte', aliases: ['Pintobohne', 'Wachtelbohne', 'Wachtelbohnen'] },
-  { id: 'gruene-bohnen', name: 'Grüne Bohnen', category: 'huelsenfruechte', aliases: ['Grüne Bohne', 'Buschbohnen', 'Stangenbohnen', 'Prinzessbohnen', 'Fisolen', 'Brechbohnen'] },
+  { id: 'gruene-bohnen', name: 'Grüne Bohnen', category: 'huelsenfruechte', aliases: ['Grüne Bohne', 'Buschbohnen', 'Stangenbohnen', 'Prinzessbohnen', 'Fisolen', 'Brechbohnen', 'Strankalan', 'Strankerl', 'Strankelen', 'Stranggn'] },
   { id: 'dicke-bohnen', name: 'Dicke Bohnen', category: 'huelsenfruechte', aliases: ['Dicke Bohne', 'Ackerbohne', 'Ackerbohnen', 'Saubohne', 'Saubohnen', 'Favabohne', 'Favabohnen', 'Puffbohne'] },
   { id: 'augenbohnen', name: 'Augenbohnen', category: 'huelsenfruechte', aliases: ['Augenbohne', 'Kuhbohne', 'Kuhbohnen', 'Black-Eyed Peas'] },
   { id: 'azukibohnen', name: 'Azukibohnen', category: 'huelsenfruechte', aliases: ['Azukibohne', 'Adzukibohne', 'Adzukibohnen'] },
