@@ -25,7 +25,7 @@
     { cat: 'gewuerze', tips: ['Jedes Gewürz zählt einzeln!', 'Pfeffer, Kurkuma, Zimt, Paprikapulver, Kreuzkümmel ...', 'Auch Gewürzmischungen: Curry, Garam Masala, Za\'atar'] },
     { cat: 'genuss', tips: ['Kaffee = Kaffeebohne (Pflanze!)', 'Dunkle Schokolade = Kakao', 'Grüner, schwarzer, weißer Tee = Camellia', 'Mate'] },
     { cat: 'huelsenfruechte', tips: ['Tofu, Tempeh, Miso, Sojasauce = Sojabohne', 'Erdnüsse sind Hülsenfrüchte', 'Hummus = Kichererbsen', 'Jede Bohnenart zählt einzeln (Kidney, schwarze, weiße ...)'] },
-    { cat: 'getreide', tips: ['Brot, Pasta, Couscous = Weizen', 'Haferflocken, Porridge = Hafer', 'Reis, Mais/Popcorn, Hirse ...', 'Pseudogetreide: Quinoa, Amaranth, Buchweizen'] },
+    { cat: 'getreide', tips: ['Pasta, Couscous = Weizen', 'Haferflocken, Porridge = Hafer', 'Brot? Kommt drauf an: Weizen-, Roggen- oder Dinkelbrot', 'Pseudogetreide: Quinoa, Amaranth, Buchweizen'] },
     { cat: 'kraeuter', tips: ['Jedes Kraut zählt einzeln', 'Auch als Tee: Kamille, Pfefferminze, Salbei', 'Wildkräuter: Brennnessel, Löwenzahn, Bärlauch'] },
     { cat: 'samen', tips: ['Sesam (auch Tahini!)', 'Leinsamen, Chiasamen, Hanfsamen', 'Senf = Senfkörner', 'Mohn, Sonnenblumenkerne, Kürbiskerne'] },
     { cat: 'nuesse', tips: ['Jede Nuss einzeln: Walnuss, Cashew, Mandel ...', 'Kokosnuss zählt auch!', 'Muskatnuss (das Gewürz)'] },
@@ -101,7 +101,7 @@
         </ul>
 
         <p class="guide-source">
-          Quelle: McDonald et al., <em>American Gut: an Open Platform for Citizen Science Microbiome Research</em>, mSystems 2018.
+          Quelle: McDonald et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5954204/" target="_blank" rel="noopener"><em>American Gut: an Open Platform for Citizen Science Microbiome Research</em></a>, mSystems 2018.
           Die Zählung folgt der Originalstudie: jede Pflanzenart zählt gleich, ohne Gewichtung.
         </p>
       </div>
@@ -401,5 +401,10 @@
     line-height: 1.4;
     border-top: 1px solid var(--color-border);
     padding-top: 0.6rem;
+  }
+
+  .guide-source a {
+    color: var(--color-primary);
+    text-decoration: underline;
   }
 </style>

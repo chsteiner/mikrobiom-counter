@@ -4,13 +4,13 @@ export const PLANTS: Plant[] = [
   // ──────────────────────────────────────────────
   // GEMÜSE (Vegetables) — 60 entries
   // ──────────────────────────────────────────────
-  { id: 'tomate', name: 'Tomate', category: 'gemuese', aliases: ['Tomaten', 'Paradeiser', 'Paradiesapfel', 'Strauchtomaten', 'Cherrytomaten', 'Cocktailtomaten'] },
+  { id: 'tomate', name: 'Tomate', category: 'gemuese', aliases: ['Tomaten', 'Paradeiser', 'Paradiesapfel', 'Strauchtomaten', 'Cherrytomaten', 'Cocktailtomaten', 'Tomatenmark', 'Passierte Tomaten', 'Dosentomaten'] },
   { id: 'karotte', name: 'Karotte', category: 'gemuese', aliases: ['Karotten', 'Möhre', 'Möhren', 'Mohrrübe', 'Mohrrüben', 'Rüebli', 'Gelbe Rübe', 'Gelbe Rüben'] },
   { id: 'brokkoli', name: 'Brokkoli', category: 'gemuese', aliases: ['Broccoli', 'Brokoli', 'Broccolo'] },
   { id: 'paprika', name: 'Paprika', category: 'gemuese', aliases: ['Paprikas', 'Peperoni', 'Gemüsepaprika', 'Spitzpaprika'] },
   { id: 'zwiebel', name: 'Zwiebel', category: 'gemuese', aliases: ['Zwiebeln', 'Speisezwiebel', 'Küchenzwiebel', 'Bolle'] },
   { id: 'knoblauch', name: 'Knoblauch', category: 'gemuese', aliases: ['Knoblauchzehe', 'Knoblauchzehen', 'Knobi', 'Knofel'] },
-  { id: 'gurke', name: 'Gurke', category: 'gemuese', aliases: ['Gurken', 'Salatgurke', 'Schlangengurke', 'Kukumer'] },
+  { id: 'gurke', name: 'Gurke', category: 'gemuese', aliases: ['Gurken', 'Salatgurke', 'Schlangengurke', 'Kukumer', 'Essiggurke', 'Gewürzgurke', 'Cornichons'] },
   { id: 'zucchini', name: 'Zucchini', category: 'gemuese', aliases: ['Zuccini', 'Zuchini', 'Courgette'] },
   { id: 'aubergine', name: 'Aubergine', category: 'gemuese', aliases: ['Auberginen', 'Eierfrucht', 'Melanzani'] },
   { id: 'spinat', name: 'Spinat', category: 'gemuese', aliases: ['Blattspinat', 'Rahmspinat', 'Babyspinat'] },
@@ -50,13 +50,13 @@ export const PLANTS: Plant[] = [
   { id: 'bambussprossen', name: 'Bambussprossen', category: 'gemuese', aliases: ['Bambus'] },
   { id: 'sojasprossen', name: 'Sojasprossen', category: 'gemuese', aliases: ['Sojakeime', 'Sojakeimlinge'] },
   { id: 'mungobohnensprossen', name: 'Mungobohnensprossen', category: 'gemuese', aliases: ['Mungbohnensprossen', 'Mungokeimlinge'] },
-  { id: 'weisskohl', name: 'Weißkohl', category: 'gemuese', aliases: ['Weißkraut', 'Kraut', 'Kabis', 'Kappes', 'Sauerkraut'] },
+  { id: 'weisskohl', name: 'Weißkohl', category: 'gemuese', aliases: ['Weißkraut', 'Kraut', 'Kabis', 'Kappes', 'Sauerkraut', 'Spitzkohl', 'Spitzkraut'] },
   { id: 'rotkohl', name: 'Rotkohl', category: 'gemuese', aliases: ['Rotkraut', 'Blaukraut', 'Rotkabis'] },
   { id: 'wirsing', name: 'Wirsing', category: 'gemuese', aliases: ['Wirsingkohl', 'Wirz', 'Welschkohl', 'Savoyerkohl'] },
   { id: 'fruehlingszwiebel', name: 'Frühlingszwiebel', category: 'gemuese', aliases: ['Frühlingszwiebeln', 'Lauchzwiebel', 'Lauchzwiebeln', 'Jungzwiebel', 'Jungzwiebeln'] },
   { id: 'schalotte', name: 'Schalotte', category: 'gemuese', aliases: ['Schalotten', 'Eschlauch', 'Edelzwiebel'] },
   { id: 'loewenzahn', name: 'Löwenzahn', category: 'gemuese', aliases: ['Löwenzahnsalat', 'Pusteblume'] },
-  { id: 'brunnenkresse', name: 'Brunnenkresse', category: 'gemuese', aliases: ['Kresse', 'Gartenkresse', 'Wasserkresse'] },
+  { id: 'brunnenkresse', name: 'Brunnenkresse', category: 'gemuese', aliases: ['Wasserkresse', 'Bachkresse'] },
   { id: 'blattkohl', name: 'Palmkohl', category: 'gemuese', aliases: ['Schwarzkohl', 'Toskanischer Kohl', 'Cavolo Nero'] },
   { id: 'meerrettich', name: 'Meerrettich', category: 'gemuese', aliases: ['Kren'] },
   { id: 'yamswurzel', name: 'Yamswurzel', category: 'gemuese', aliases: ['Yams', 'Yamswurzeln'] },
@@ -75,8 +75,8 @@ export const PLANTS: Plant[] = [
   { id: 'apfel', name: 'Apfel', category: 'obst', aliases: ['Äpfel', 'Apferl', 'Öpfel'] },
   { id: 'birne', name: 'Birne', category: 'obst', aliases: ['Birnen', 'Birnä'] },
   { id: 'banane', name: 'Banane', category: 'obst', aliases: ['Bananen', 'Kochbanane', 'Kochbananen'] },
-  { id: 'orange', name: 'Orange', category: 'obst', aliases: ['Orangen', 'Apfelsine', 'Apfelsinen'] },
-  { id: 'zitrone', name: 'Zitrone', category: 'obst', aliases: ['Zitronen', 'Limone', 'Limonen'] },
+  { id: 'orange', name: 'Orange', category: 'obst', aliases: ['Orangen', 'Apfelsine', 'Apfelsinen', 'Orangenschale', 'Orangenabrieb'] },
+  { id: 'zitrone', name: 'Zitrone', category: 'obst', aliases: ['Zitronen', 'Limone', 'Limonen', 'Zitronenschale', 'Zitronenabrieb'] },
   { id: 'limette', name: 'Limette', category: 'obst', aliases: ['Limetten', 'Lime', 'Limettn'] },
   { id: 'grapefruit', name: 'Grapefruit', category: 'obst', aliases: ['Grapefruits', 'Pampelmuse', 'Pampelmusen'] },
   { id: 'mandarine', name: 'Mandarine', category: 'obst', aliases: ['Mandarinen', 'Clementine', 'Clementinen', 'Satsuma', 'Satsumas'] },
@@ -87,7 +87,7 @@ export const PLANTS: Plant[] = [
   { id: 'johannisbeere', name: 'Johannisbeere', category: 'obst', aliases: ['Johannisbeeren', 'Ribisel', 'Ribiseln', 'Rote Johannisbeere', 'Schwarze Johannisbeere'] },
   { id: 'stachelbeere', name: 'Stachelbeere', category: 'obst', aliases: ['Stachelbeeren', 'Gooseberry'] },
   { id: 'kirsche', name: 'Kirsche', category: 'obst', aliases: ['Kirschen', 'Süßkirsche', 'Sauerkirsche', 'Weichsel', 'Weichseln'] },
-  { id: 'pflaume', name: 'Pflaume', category: 'obst', aliases: ['Pflaumen', 'Zwetschge', 'Zwetschgen', 'Zwetschke', 'Zwetschken'] },
+  { id: 'pflaume', name: 'Pflaume', category: 'obst', aliases: ['Pflaumen', 'Zwetschge', 'Zwetschgen', 'Zwetschke', 'Zwetschken', 'Trockenpflaume', 'Trockenpflaumen', 'Dörrpflaume', 'Dörrpflaumen'] },
   { id: 'pfirsich', name: 'Pfirsich', category: 'obst', aliases: ['Pfirsiche'] },
   { id: 'nektarine', name: 'Nektarine', category: 'obst', aliases: ['Nektarinen'] },
   { id: 'aprikose', name: 'Aprikose', category: 'obst', aliases: ['Aprikosen', 'Marille', 'Marillen'] },
@@ -96,7 +96,7 @@ export const PLANTS: Plant[] = [
   { id: 'kiwi', name: 'Kiwi', category: 'obst', aliases: ['Kiwis', 'Chinesische Stachelbeere'] },
   { id: 'melone', name: 'Melone', category: 'obst', aliases: ['Melonen', 'Honigmelone', 'Zuckermelone', 'Galiamelone', 'Cantaloupemelone'] },
   { id: 'wassermelone', name: 'Wassermelone', category: 'obst', aliases: ['Wassermelonen'] },
-  { id: 'traube', name: 'Traube', category: 'obst', aliases: ['Trauben', 'Weintrauben', 'Weintraube'] },
+  { id: 'traube', name: 'Traube', category: 'obst', aliases: ['Trauben', 'Weintrauben', 'Weintraube', 'Rosinen', 'Sultaninen', 'Korinthen', 'Weinblätter', 'Weinblatt'] },
   { id: 'feige', name: 'Feige', category: 'obst', aliases: ['Feigen'] },
   { id: 'dattel', name: 'Dattel', category: 'obst', aliases: ['Datteln', 'Medjool'] },
   { id: 'granatapfel', name: 'Granatapfel', category: 'obst', aliases: ['Granatäpfel', 'Grenadine'] },
@@ -104,7 +104,7 @@ export const PLANTS: Plant[] = [
   { id: 'papaya', name: 'Papaya', category: 'obst', aliases: ['Papayas', 'Baummelone'] },
   { id: 'litschi', name: 'Litschi', category: 'obst', aliases: ['Litschis', 'Lychee', 'Lychees', 'Litchi'] },
   { id: 'drachenfrucht', name: 'Drachenfrucht', category: 'obst', aliases: ['Drachenfrüchte', 'Pitaya', 'Pitahaya'] },
-  { id: 'kokosnuss', name: 'Kokosnuss', category: 'obst', aliases: ['Kokosnüsse', 'Kokos', 'Kokosflocken', 'Kokosraspeln', 'Kokosraspel', 'Kokosmilch', 'Kokoschips', 'Kokosöl'] },
+  { id: 'kokosnuss', name: 'Kokosnuss', category: 'obst', aliases: ['Kokosnüsse', 'Kokos', 'Kokosflocken', 'Kokosraspeln', 'Kokosraspel', 'Kokosmilch', 'Kokoschips'] },
   { id: 'quitte', name: 'Quitte', category: 'obst', aliases: ['Quitten'] },
   { id: 'holunderbeere', name: 'Holunderbeere', category: 'obst', aliases: ['Holunderbeeren', 'Holunder', 'Holler', 'Fliederbeere'] },
   { id: 'preiselbeere', name: 'Preiselbeere', category: 'obst', aliases: ['Preiselbeeren', 'Granten'] },
@@ -146,14 +146,14 @@ export const PLANTS: Plant[] = [
   { id: 'tigernuss', name: 'Tigernuss', category: 'nuesse', aliases: ['Tigernüsse', 'Erdmandel', 'Erdmandeln', 'Chufa'] },
 
   // ──────────────────────────────────────────────
-  // SAMEN (Seeds) — 15 entries
+  // SAMEN (Seeds) — 14 entries
   // ──────────────────────────────────────────────
   { id: 'sonnenblumenkerne', name: 'Sonnenblumenkerne', category: 'samen', aliases: ['Sonnenblumenkern', 'Sonnenblumensamen'] },
   { id: 'kuerbiskerne', name: 'Kürbiskerne', category: 'samen', aliases: ['Kürbiskern', 'Kürbissamen'] },
-  { id: 'leinsamen', name: 'Leinsamen', category: 'samen', aliases: ['Leinsaat', 'Flachssamen', 'Leinöl'] },
+  { id: 'leinsamen', name: 'Leinsamen', category: 'samen', aliases: ['Leinsaat', 'Flachssamen'] },
   { id: 'chiasamen', name: 'Chiasamen', category: 'samen', aliases: ['Chia', 'Chia-Samen', 'Chia Samen'] },
-  { id: 'sesam', name: 'Sesam', category: 'samen', aliases: ['Sesamkörner', 'Sesamsamen', 'Sesamkerne', 'Sesamöl', 'Tahin', 'Tahini', 'Sesammus', 'Halva'] },
-  { id: 'hanfsamen', name: 'Hanfsamen', category: 'samen', aliases: ['Hanfnüsschen', 'Hanfherzen', 'Hanfsaat'] },
+  { id: 'sesam', name: 'Sesam', category: 'samen', aliases: ['Sesamkörner', 'Sesamsamen', 'Sesamkerne', 'Tahin', 'Tahini', 'Sesammus', 'Halva'] },
+  { id: 'hanfsamen', name: 'Hanfsamen', category: 'samen', aliases: ['Hanfnüsschen', 'Hanfherzen', 'Hanfsaat', 'Hanfnüsse', 'Geschälte Hanfsamen'] },
   { id: 'mohnsamen', name: 'Mohnsamen', category: 'samen', aliases: ['Mohn', 'Blaumohn', 'Backmohn'] },
   { id: 'schwarzkuemmel', name: 'Schwarzkümmel', category: 'samen', aliases: ['Schwarzkümmelsamen', 'Nigella', 'Nigellasamen'] },
   { id: 'senfsaat', name: 'Senfsaat', category: 'samen', aliases: ['Senfkörner', 'Senfsamen', 'Senf'] },
@@ -161,8 +161,7 @@ export const PLANTS: Plant[] = [
   { id: 'granatapfelkerne', name: 'Granatapfelkerne', category: 'samen', aliases: ['Granatapfelkern'] },
   { id: 'lotussamen', name: 'Lotussamen', category: 'samen', aliases: ['Lotuskerne'] },
   { id: 'brokkoli-samen', name: 'Brokkolisamen', category: 'samen', aliases: ['Brokkolisprossen', 'Brokkoli-Sprossen'] },
-  { id: 'traubenkerne', name: 'Traubenkerne', category: 'samen', aliases: ['Traubenkernöl'] },
-  { id: 'hanfnuesse', name: 'Hanfnüsse', category: 'samen', aliases: ['Geschälte Hanfsamen'] },
+  { id: 'traubenkerne', name: 'Traubenkerne', category: 'samen', aliases: [] },
   { id: 'alfalfa', name: 'Alfalfa', category: 'samen', aliases: ['Luzerne', 'Alfalfasprossen', 'Luzernesprossen'] },
 
   // ──────────────────────────────────────────────
@@ -174,13 +173,13 @@ export const PLANTS: Plant[] = [
   { id: 'schwarze-bohnen', name: 'Schwarze Bohnen', category: 'huelsenfruechte', aliases: ['Schwarze Bohne', 'Black Beans'] },
   { id: 'weisse-bohnen', name: 'Weiße Bohnen', category: 'huelsenfruechte', aliases: ['Weiße Bohne', 'Cannellini', 'Cannellini-Bohnen'] },
   { id: 'erbsen', name: 'Erbsen', category: 'huelsenfruechte', aliases: ['Erbse', 'Grüne Erbsen', 'Schälerbsen', 'Zuckererbsen', 'Zuckerschoten'] },
-  { id: 'sojabohnen', name: 'Sojabohnen', category: 'huelsenfruechte', aliases: ['Sojabohne', 'Soja', 'Tofu', 'Tempeh', 'Miso', 'Natto'] },
+  { id: 'sojabohnen', name: 'Sojabohnen', category: 'huelsenfruechte', aliases: ['Sojabohne', 'Soja', 'Tofu', 'Tempeh', 'Miso', 'Natto', 'Sojasauce', 'Shoyu', 'Tamari'] },
   { id: 'edamame', name: 'Edamame', category: 'huelsenfruechte', aliases: ['Junge Sojabohnen'] },
   { id: 'lupinen', name: 'Lupinen', category: 'huelsenfruechte', aliases: ['Lupine', 'Lupinenbohne', 'Lupinenbohnen', 'Süßlupine'] },
   { id: 'mungobohnen', name: 'Mungobohnen', category: 'huelsenfruechte', aliases: ['Mungobohne', 'Mungbohne', 'Mungbohnen'] },
   { id: 'limabohnen', name: 'Limabohnen', category: 'huelsenfruechte', aliases: ['Limabohne', 'Butterbohne', 'Butterbohnen'] },
   { id: 'pintobohnen', name: 'Pintobohnen', category: 'huelsenfruechte', aliases: ['Pintobohne', 'Wachtelbohne', 'Wachtelbohnen'] },
-  { id: 'gruene-bohnen', name: 'Grüne Bohnen', category: 'huelsenfruechte', aliases: ['Grüne Bohne', 'Buschbohnen', 'Stangenbohnen', 'Prinzessbohnen', 'Fisolen'] },
+  { id: 'gruene-bohnen', name: 'Grüne Bohnen', category: 'huelsenfruechte', aliases: ['Grüne Bohne', 'Buschbohnen', 'Stangenbohnen', 'Prinzessbohnen', 'Fisolen', 'Brechbohnen'] },
   { id: 'dicke-bohnen', name: 'Dicke Bohnen', category: 'huelsenfruechte', aliases: ['Dicke Bohne', 'Ackerbohne', 'Ackerbohnen', 'Saubohne', 'Saubohnen', 'Favabohne', 'Favabohnen', 'Puffbohne'] },
   { id: 'augenbohnen', name: 'Augenbohnen', category: 'huelsenfruechte', aliases: ['Augenbohne', 'Kuhbohne', 'Kuhbohnen', 'Black-Eyed Peas'] },
   { id: 'azukibohnen', name: 'Azukibohnen', category: 'huelsenfruechte', aliases: ['Azukibohne', 'Adzukibohne', 'Adzukibohnen'] },
@@ -192,7 +191,7 @@ export const PLANTS: Plant[] = [
   // ──────────────────────────────────────────────
   { id: 'hafer', name: 'Hafer', category: 'getreide', aliases: ['Haferflocken', 'Haferkleie', 'Hafermehl', 'Hafermilch', 'Porridge', 'Overnight Oats'] },
   { id: 'reis', name: 'Reis', category: 'getreide', aliases: ['Basmati', 'Basmatireis', 'Jasminreis', 'Naturreis', 'Vollkornreis', 'Wildreis', 'Risottoreis', 'Sushireis', 'Reismehl'] },
-  { id: 'weizen', name: 'Weizen', category: 'getreide', aliases: ['Weizenmehl', 'Weizenkleie', 'Weizenkeime', 'Vollkornweizen', 'Vollkornbrot', 'Brot', 'Brötchen', 'Pasta', 'Nudeln'] },
+  { id: 'weizen', name: 'Weizen', category: 'getreide', aliases: ['Weizenmehl', 'Weizenkleie', 'Weizenkeime', 'Vollkornweizen', 'Weizenbrot', 'Weizenbrötchen', 'Weizengras', 'Weizengraspulver', 'Pasta', 'Nudeln'] },
   { id: 'roggen', name: 'Roggen', category: 'getreide', aliases: ['Roggenmehl', 'Roggenbrot', 'Roggenvollkorn', 'Pumpernickel'] },
   { id: 'dinkel', name: 'Dinkel', category: 'getreide', aliases: ['Dinkelmehl', 'Dinkelflocken', 'Dinkelbrot', 'Grünkern', 'Dinkelreis'] },
   { id: 'gerste', name: 'Gerste', category: 'getreide', aliases: ['Graupen', 'Rollgerste', 'Gerstengraupen', 'Gerstengras'] },
@@ -246,7 +245,7 @@ export const PLANTS: Plant[] = [
   { id: 'lemon-verbena', name: 'Zitronenverbene', category: 'kraeuter', aliases: ['Verbene', 'Verveine', 'Eisenkraut'] },
   { id: 'curryblaetter', name: 'Curryblätter', category: 'kraeuter', aliases: ['Curryblatt', 'Curry Leaves'] },
   { id: 'kaffirlimettenblatt', name: 'Kaffirlimettenblatt', category: 'kraeuter', aliases: ['Kaffirlimettenblätter', 'Limettenblätter'] },
-  { id: 'brunnenkresse-kraut', name: 'Brunnenkresse', category: 'kraeuter', aliases: ['Gartenkresse', 'Kresse'] },
+  { id: 'gartenkresse', name: 'Gartenkresse', category: 'kraeuter', aliases: ['Kresse', 'Kressesprossen'] },
   { id: 'beifuss', name: 'Beifuß', category: 'kraeuter', aliases: ['Beifuß', 'Gewürzbeifuß'] },
   { id: 'wermut', name: 'Wermut', category: 'kraeuter', aliases: ['Wermutkraut', 'Absinth'] },
   { id: 'ysop', name: 'Ysop', category: 'kraeuter', aliases: ['Josefskraut', 'Eisop'] },
@@ -262,7 +261,7 @@ export const PLANTS: Plant[] = [
   { id: 'spitzwegerich', name: 'Spitzwegerich', category: 'kraeuter', aliases: ['Wegerich', 'Breitwegerich'] },
 
   // ──────────────────────────────────────────────
-  // GEWÜRZE (Spices) — 37 entries
+  // GEWÜRZE (Spices) — 36 entries
   // ──────────────────────────────────────────────
   { id: 'pfeffer', name: 'Pfeffer', category: 'gewuerze', aliases: ['Schwarzer Pfeffer', 'Weißer Pfeffer', 'Grüner Pfeffer', 'Rosa Pfeffer', 'Pfefferkörner'] },
   { id: 'paprikapulver', name: 'Paprikapulver', category: 'gewuerze', aliases: ['Edelsüß', 'Rosenpaprika', 'Scharf Paprika', 'Geräuchertes Paprikapulver', 'Pimentón'] },
@@ -278,7 +277,7 @@ export const PLANTS: Plant[] = [
   { id: 'koriandersamen', name: 'Koriandersamen', category: 'gewuerze', aliases: ['Korianderpulver', 'Gemahlener Koriander'] },
   { id: 'fenchelsamen', name: 'Fenchelsamen', category: 'gewuerze', aliases: ['Fenchelpulver', 'Fencheltee'] },
   { id: 'safran', name: 'Safran', category: 'gewuerze', aliases: ['Safranfäden', 'Safranpulver'] },
-  { id: 'vanille', name: 'Vanille', category: 'gewuerze', aliases: ['Vanilleschote', 'Vanilleschoten', 'Vanillezucker', 'Vanilleextrakt', 'Bourbon-Vanille'] },
+  { id: 'vanille', name: 'Vanille', category: 'gewuerze', aliases: ['Vanilleschote', 'Vanilleschoten', 'Vanilleextrakt', 'Bourbon-Vanille'] },
   { id: 'chili', name: 'Chili', category: 'gewuerze', aliases: ['Chilis', 'Chiliflocken', 'Chilipulver', 'Chilischote', 'Chilischoten', 'Peperoncino'] },
   { id: 'cayennepfeffer', name: 'Cayennepfeffer', category: 'gewuerze', aliases: ['Cayenne', 'Cayenne-Pfeffer'] },
   { id: 'piment', name: 'Piment', category: 'gewuerze', aliases: ['Nelkenpfeffer', 'Jamaikapfeffer', 'Allspice'] },
@@ -299,12 +298,11 @@ export const PLANTS: Plant[] = [
   { id: 'macis', name: 'Macis', category: 'gewuerze', aliases: ['Muskatblüte', 'Macisblüte'] },
   { id: 'asafoetida', name: 'Asafoetida', category: 'gewuerze', aliases: ['Asafötida', 'Teufelsdreck', 'Hing'] },
   { id: 'annatto', name: 'Annatto', category: 'gewuerze', aliases: ['Anatto', 'Bixa', 'Achote'] },
-  { id: 'rauchsalz', name: 'Rauchsalz', category: 'gewuerze', aliases: ['Geräuchertes Salz', 'Smoked Salt'] },
   { id: 'berbere', name: 'Berbere', category: 'gewuerze', aliases: ['Berberé', 'Äthiopische Gewürzmischung'] },
   { id: 'kapern', name: 'Kapern', category: 'gewuerze', aliases: ['Kapernäpfel', 'Kaper'] },
 
   // ──────────────────────────────────────────────
-  // PILZE (Mushrooms/Fungi) — 10 entries
+  // PILZE (Mushrooms/Fungi) — 11 entries
   // ──────────────────────────────────────────────
   { id: 'champignon', name: 'Champignon', category: 'pilze', aliases: ['Champignons', 'Egerling', 'Brauner Champignon', 'Weißer Champignon', 'Portobello'] },
   { id: 'pfifferling', name: 'Pfifferling', category: 'pilze', aliases: ['Pfifferlinge', 'Eierschwammerl', 'Reherl'] },
@@ -314,8 +312,9 @@ export const PLANTS: Plant[] = [
   { id: 'kraeuterseitling', name: 'Kräuterseitling', category: 'pilze', aliases: ['Kräuterseitlinge', 'Königsausternpilz'] },
   { id: 'morchel', name: 'Morchel', category: 'pilze', aliases: ['Morcheln', 'Speisemorchel', 'Spitzmorchel'] },
   { id: 'enoki', name: 'Enoki', category: 'pilze', aliases: ['Enokipilz', 'Samtfußrübling', 'Enokitake'] },
-  { id: 'trueffel', name: 'Trüffel', category: 'pilze', aliases: ['Trüffeln', 'Schwarzer Trüffel', 'Weißer Trüffel', 'Trüffelöl'] },
+  { id: 'trueffel', name: 'Trüffel', category: 'pilze', aliases: ['Trüffeln', 'Schwarzer Trüffel', 'Weißer Trüffel'] },
   { id: 'judasohr', name: 'Judasohr', category: 'pilze', aliases: ['Mu-Err', 'Mu Err', 'Wolkenohrpilz', 'China-Morchel', 'Holunderpilz'] },
+  { id: 'hefeflocken', name: 'Hefeflocken', category: 'pilze', aliases: ['Edelhefe', 'Nährhefe', 'Nutritional Yeast'] },
 
   // ──────────────────────────────────────────────
   // GENUSSMITTEL (Polyphenol-rich beverages) — 4 entries
@@ -323,5 +322,5 @@ export const PLANTS: Plant[] = [
   { id: 'kaffee', name: 'Kaffee', category: 'genuss', aliases: ['Kaffeebohnen', 'Espresso', 'Filterkaffee', 'Cappuccino', 'Latte'] },
   { id: 'kakao', name: 'Kakao', category: 'genuss', aliases: ['Kakaobohnen', 'Kakaonibs', 'Kakaopulver', 'Dunkle Schokolade', 'Zartbitterschokolade'] },
   { id: 'tee', name: 'Tee (Camellia)', category: 'genuss', aliases: ['Grüner Tee', 'Schwarzer Tee', 'Weißer Tee', 'Matcha', 'Oolong', 'Earl Grey', 'Darjeeling'] },
-  { id: 'mate', name: 'Mate', category: 'genuss', aliases: ['Matetee', 'Yerba Mate', 'Club Mate'] },
+  { id: 'mate', name: 'Mate', category: 'genuss', aliases: ['Matetee', 'Yerba Mate'] },
 ];

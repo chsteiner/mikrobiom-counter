@@ -2,7 +2,8 @@
   import { untrack } from 'svelte';
   import { isSpeechAvailable, isOnline, createRecognition } from '../lib/speechService';
   import { parseTranscript } from '../lib/transcriptParser';
-  import { matchPlant, type MatchResult } from '../lib/plantMatcher';
+  import { matchPlant, searchPlants, type MatchResult } from '../lib/plantMatcher';
+  import { PLANTS } from '../data/plants';
 
   interface Props {
     onconfirm: (plants: { id: string; name: string }[]) => void;
@@ -68,15 +69,41 @@
 
   function processTranscript(transcript: string) {
     const tokens = parseTranscript(transcript);
-    matches = tokens.map(t => matchPlant(t));
+    const rawMatches = tokens.map(t => matchPlant(t));
 
-    // Pre-select all matches that found a plant
-    selected = new Set(
-      matches
-        .map((m, i) => (m.plant ? i : -1))
-        .filter(i => i >= 0)
-    );
+    // Expand: replace unmatched terms with their search suggestions as individual entries
+    const expanded: MatchResult[] = [];
+    const selectedSet = new Set<number>();
 
+    for (const m of rawMatches) {
+      if (m.confidence === 'none') {
+        // Find plants that have an ALIAS ending with the search term
+        // "Brot" → Weizen (via "Weizenbrot"), Roggen (via "Roggenbrot"), Dinkel (via "Dinkelbrot")
+        // Filters out: Johannisbrot (plant name, not an alias ending in "Brot")
+        // Filters out: Kokosmilch noise when someone just says "Milch"... wait, that passes.
+        // But at least suggestions are NOT pre-selected, so user actively chooses.
+        const term = m.matchedTerm.toLowerCase();
+        const suggestions = searchPlants(m.matchedTerm, 10).filter(p =>
+          p.aliases.some(a => a.toLowerCase().endsWith(term))
+        );
+
+        if (suggestions.length > 0) {
+          for (const plant of suggestions.slice(0, 5)) {
+            expanded.push({ plant, confidence: 'medium', matchedTerm: m.matchedTerm });
+            // Suggestions are NOT pre-selected — user picks actively
+          }
+        } else {
+          expanded.push(m); // truly unmatched
+        }
+      } else {
+        const idx = expanded.length;
+        expanded.push(m);
+        if (m.plant) selectedSet.add(idx);
+      }
+    }
+
+    matches = expanded;
+    selected = selectedSet;
     state = 'results';
   }
 
@@ -91,13 +118,35 @@
   }
 
   function confirm() {
-    const plants = matches
-      .filter((_, i) => selected.has(i))
-      .filter(m => m.plant)
-      .map(m => ({ id: m.plant!.id, name: m.plant!.name }));
+    const seen = new Set<string>();
+    const plants: { id: string; name: string }[] = [];
+    for (const [i, m] of matches.entries()) {
+      if (selected.has(i) && m.plant && !seen.has(m.plant.id)) {
+        seen.add(m.plant.id);
+        plants.push({ id: m.plant.id, name: m.plant.name });
+      }
+    }
 
     if (plants.length > 0) {
       onconfirm(plants);
+    }
+  }
+
+  async function reportUnknown(term: string) {
+    const text = `Mikrobiom Counter Feedback:\n„${term}" wurde nicht erkannt.\nIch denke, das sollte zählen.`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: 'Feedback: Fehlender Eintrag', text });
+        return;
+      } catch (_) { /* user cancelled or share failed */ }
+    }
+    // Fallback: copy to clipboard
+    try {
+      await navigator.clipboard.writeText(text);
+      alert('Feedback in Zwischenablage kopiert!');
+    } catch (_) {
+      // Last resort: mailto
+      window.open(`mailto:?subject=${encodeURIComponent('Fehlender Eintrag: ' + term)}&body=${encodeURIComponent(text)}`);
     }
   }
 
@@ -158,7 +207,11 @@
                     {/if}
                   </label>
                 {:else}
-                  <span class="match-unknown">"{match.matchedTerm}" — nicht erkannt</span>
+                  <div class="match-unknown-block">
+                    <span class="match-unknown">"{match.matchedTerm}" - nicht erkannt</span>
+                    <span class="match-unknown-hint">Nur ganze Pflanzen werden gezählt. Siehe "Was zählt?" in den Einstellungen.</span>
+                    <button class="report-btn" onclick={() => reportUnknown(match.matchedTerm)}>Fehler melden</button>
+                  </div>
                 {/if}
               </li>
             {/each}
@@ -277,6 +330,29 @@
 
   .unmatched {
     opacity: 0.6;
+  }
+
+  .match-unknown-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .match-unknown-hint {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .report-btn {
+    padding: 0.25rem 0.6rem;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    align-self: flex-start;
   }
 
   .no-results {

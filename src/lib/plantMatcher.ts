@@ -132,12 +132,13 @@ export function matchPlant(input: string): MatchResult {
   }
 
   // Tier 3: Prefix match (input is prefix of a plant name, or plant name is prefix of input)
+  // Word boundary check: "vanillezucker" must NOT match "vanille" (compound word)
   const prefixMatches: SearchEntry[] = [];
   for (const entry of index) {
-    if (
-      (entry.normalized.startsWith(normalized) && normalized.length >= 3) ||
-      (normalized.startsWith(entry.normalized) && entry.normalized.length >= 3)
-    ) {
+    const inputIsPrefix = entry.normalized.startsWith(normalized) && normalized.length >= 3;
+    const plantIsPrefix = normalized.startsWith(entry.normalized) && entry.normalized.length >= 3
+      && (normalized.length === entry.normalized.length || /[\s\-]/.test(normalized[entry.normalized.length]));
+    if (inputIsPrefix || plantIsPrefix) {
       prefixMatches.push(entry);
     }
   }

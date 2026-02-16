@@ -7,15 +7,15 @@
 | Gemüse | `gemuese` | 65 | Tomate, Karotte, Nori, Lotuswurzel |
 | Obst | `obst` | 55 | Apfel, Avocado, Olive, Kaktusfeige |
 | Nüsse | `nuesse` | 14 | Walnuss, Erdnuss, Tigernuss |
-| Samen | `samen` | 16 | Sesam/Tahini, Chiasamen, Senfsaat |
+| Samen | `samen` | 14 | Sesam/Tahini, Chiasamen, Senfsaat |
 | Hülsenfrüchte | `huelsenfruechte` | 19 | Linsen, Tofu/Sojabohne, Johannisbrot |
-| Getreide | `getreide` | 27 | Hafer, Weizen/Pasta/Brot, Quinoa |
-| Kräuter | `kraeuter` | 41 | Basilikum, Kamille, Brennnessel |
-| Gewürze | `gewuerze` | 39 | Kurkuma, Zimt, Currypulver, Za'atar |
-| Pilze | `pilze` | 10 | Champignon, Shiitake, Trüffel |
+| Getreide | `getreide` | 27 | Hafer, Weizen/Pasta, Quinoa |
+| Kräuter | `kraeuter` | 41 | Basilikum, Kamille, Gartenkresse |
+| Gewürze | `gewuerze` | 36 | Kurkuma, Zimt, Currypulver, Za'atar |
+| Pilze | `pilze` | 11 | Champignon, Shiitake, Hefeflocken |
 | Genussmittel | `genuss` | 4 | Kaffee, Kakao, Tee (Camellia), Mate |
 
-**Gesamt:** 284 Pflanzen (Stand: plants.ts)
+**Gesamt:** 283 Pflanzen (Stand: plants.ts)
 
 ## Datenstruktur
 
@@ -70,15 +70,35 @@ Stemming-Regeln (Reihenfolge wichtig):
 - `mais` (Gemüse) vs. `mais-getreide` (Getreide): Maiskolben als Gemüse, Maismehl/Popcorn als Getreide. Biologisch dieselbe Pflanze, aber zwei Einträge weil verschiedene Kategorien.
 - `haferkleie` und `weizenkeime` haben eigene Einträge, obwohl sie Teile von Hafer/Weizen sind. Redundant.
 - `vollkornreis` und `wildreis` sind separate Einträge neben `reis`. Wildreis ist biologisch eine andere Pflanze (Zizania), Vollkornreis nicht.
-- `hanfsamen` und `hanfnuesse` sind dasselbe Produkt, zwei Einträge.
-- `brunnenkresse` existiert doppelt: als Gemüse (`brunnenkresse`) und als Kraut (`brunnenkresse-kraut`).
+- `hanfsamen` und `hanfnuesse` waren dasselbe Produkt → behoben: `hanfnuesse` gelöscht, Aliase in `hanfsamen` gemergt.
+- `brunnenkresse` Duplikat behoben: `brunnenkresse` (Gemüse, Nasturtium officinale) und `gartenkresse` (Kraut, Lepidium sativum) sind jetzt separate Arten.
 
-### Fehlende Einträge
+### Fehlende Einträge (behoben)
 
-- Keine Rosine als eigenständiger Eintrag (Trockenfrüchte-Aliase fehlen teils)
-- Sojasauce fehlt als Alias bei Sojabohnen (über matchPlant Tier 3 abgefangen via Prefix, aber nicht explizit)
-- Vollkornpasta fehlt als Alias bei Weizen
-- Kokosmilch als Alias bei Kokosnuss vorhanden, Kokosöl auch, aber: zählt Kokosöl? (Ist ein isoliertes Extrakt laut "Was zählt nicht?"-Regel)
+- Rosinen/Sultaninen/Korinthen als Aliase bei Traube hinzugefügt
+- Sojasauce/Shoyu/Tamari als Aliase bei Sojabohnen hinzugefügt
+- Essiggurke/Gewürzgurke/Cornichons als Aliase bei Gurke hinzugefügt
+- Tomatenmark/Passierte Tomaten/Dosentomaten als Aliase bei Tomate hinzugefügt
+- Trockenpflaume/Dörrpflaume als Aliase bei Pflaume hinzugefügt
+- Brechbohnen als Alias bei Grüne Bohnen hinzugefügt
+- Spitzkohl/Spitzkraut als Aliase bei Weißkohl hinzugefügt
+- Weinblätter als Alias bei Traube (selbe Art: Vitis vinifera)
+- Hefeflocken als neuer Eintrag unter Pilze
+
+### Entfernte Einträge (nicht wissenschaftskonform)
+
+- Rauchsalz: Kein Pflanzenprodukt
+- Kokosöl: Isoliertes Extrakt ohne Fasern
+- Trüffelöl: Meist synthetisches Aroma/reines Extrakt
+- Vanillezucker: 95% Zucker
+- Club Mate: Zuckerhaltige Limonade (Mate als Tee bleibt)
+- Leinöl, Sesamöl, Traubenkernöl: Isolierte Extrakte (konsistent mit Kokosöl-Regel)
+
+### Fehlende Aliase (behoben)
+
+- Weizengras/Weizengraspulver als Aliase bei Weizen
+- Zitronenschale/Zitronenabrieb als Aliase bei Zitrone
+- Orangenschale/Orangenabrieb als Aliase bei Orange
 
 ### Grenzfälle in der Kategorisierung
 
@@ -92,6 +112,14 @@ Stemming-Regeln (Reihenfolge wichtig):
 
 - "Salat" wurde nicht erkannt (behoben: Alias für Kopfsalat)
 - "Grüne Paprika" wurde nicht erkannt (behoben: Adjektiv-Stripping in plantMatcher Tier 5)
+- "Brot" war Alias für Weizen (ungenau, Brot kann Roggen/Dinkel sein). Behoben: "Brot"/"Brötchen" entfernt, stattdessen Vorschläge via searchPlants im Voice-Flow
+
+### Adjektiv-Stripping (Tier 5) - Verifizierte Sicherheit
+
+- Compound-Nouns (Süßkartoffel, Blumenkohl) sind sicher: `stripFoodAdjectives()` greift nur bei mehrteiligen Eingaben (min. 2 Wörter)
+- "süß" ist nicht in der FOOD_ADJECTIVES-Liste
+- "Rote Bete" und "Rote Linsen" matchen in Tier 1 exakt, bevor Tier 5 greift
+- Nur führende Adjektive werden entfernt, nie Wörter mitten im String
 
 ## Quelle der Einträge
 

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { CATEGORY_LABELS, type PlantCategory, type PlantEntry } from '../data/types';
   import { PLANTS } from '../data/plants';
-  import { formatWeekLabel, getWeekKeyOffset, getISOWeekKey } from '../lib/weekUtils';
+  import { formatWeekLabel, getWeekRange, getISOWeekKey } from '../lib/weekUtils';
   import { db } from '../data/db';
 
   interface Props {
@@ -34,30 +34,10 @@
   }
 
   function navigate(direction: -1 | 1) {
-    // Calculate offset from current week
-    const currentWeek = getISOWeekKey();
-    // Find how many weeks viewedWeekKey is from now by comparing strings
-    // Since we navigate by offset, just track week keys by stepping
-    if (direction === -1) {
-      // Go one week earlier: find the Monday before the current viewed week
-      const [yearStr, weekStr] = viewedWeekKey.split('-W');
-      let year = parseInt(yearStr);
-      let week = parseInt(weekStr) - 1;
-      if (week < 1) {
-        year--;
-        week = 52; // simplified; ISO weeks can be 52 or 53
-      }
-      viewedWeekKey = `${year}-W${String(week).padStart(2, '0')}`;
-    } else {
-      const [yearStr, weekStr] = viewedWeekKey.split('-W');
-      let year = parseInt(yearStr);
-      let week = parseInt(weekStr) + 1;
-      if (week > 52) {
-        year++;
-        week = 1;
-      }
-      viewedWeekKey = `${year}-W${String(week).padStart(2, '0')}`;
-    }
+    const { start } = getWeekRange(viewedWeekKey);
+    const shifted = new Date(start);
+    shifted.setUTCDate(start.getUTCDate() + direction * 7);
+    viewedWeekKey = getISOWeekKey(shifted);
     loadWeek(viewedWeekKey);
   }
 

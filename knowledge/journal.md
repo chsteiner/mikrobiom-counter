@@ -9,6 +9,7 @@
 | `76c6f25` | GitHub Pages Deployment via Actions | 2026-02-16 |
 | `c33e6dd` | Adjektiv-Stripping (Tier 5 Matching) | 2026-02-16 |
 | `9fcef2a` | PWA short_name fix | 2026-02-16 |
+| `1adef81` | Glossar, Knowledge-Docs, "Salat"-Alias | 2026-02-16 |
 
 ## Tester-Feedback
 
@@ -35,5 +36,5 @@
 ## Offene Fragen
 
 - Gewürzmischungen (Curry, Garam Masala, Za'atar): Zählen als 1 Pflanze oder als ihre Einzelbestandteile? Aktuell: als 1 Pflanze. Pragmatisch, aber nicht ganz korrekt.
-- Sojasauce: Zählt das als Sojabohne? Ist ein fermentiertes Produkt. Aktuell nicht als expliziter Alias.
-- Rauchsalz: Ist kein Pflanzenprodukt. Sollte aus der Liste entfernt werden.
+- ~~Sojasauce: Zählt das als Sojabohne?~~ Behoben: Sojasauce/Shoyu/Tamari als Aliase hinzugefügt.
+- ~~Rauchsalz: Ist kein Pflanzenprodukt.~~ Behoben: Eintrag gelöscht.

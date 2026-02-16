@@ -82,6 +82,18 @@
   }
 
   let isFirstUse = $derived(totalEntries === 0 && summary.entries.length === 0);
+
+  let motivationText = $derived.by(() => {
+    const { count, goal } = summary;
+    const remaining = goal - count;
+
+    if (count === 0) return null;
+    if (count >= goal) return null;
+    if (remaining <= 3) return `Nur noch ${remaining}!`;
+    if (remaining <= 10) return `Noch ${remaining} bis zum Ziel.`;
+    if (count >= 5 && count < 15) return `Guter Start! Schon ${count} verschiedene Pflanzen.`;
+    return null;
+  });
 </script>
 
 <div class="home">
@@ -105,6 +117,10 @@
 
     {#if streak >= 2}
       <div class="streak-badge">{streak} Wochen mit {settings.streakThreshold}+ Pflanzen</div>
+    {/if}
+
+    {#if motivationText}
+      <p class="motivation-text">{motivationText}</p>
     {/if}
   {/if}
 
@@ -185,6 +201,13 @@
   .streak-badge {
     font-size: 0.75rem;
     font-weight: 500;
+    color: var(--color-text-muted);
+    margin-top: -0.75rem;
+  }
+
+  /* Motivation text */
+  .motivation-text {
+    font-size: 0.85rem;
     color: var(--color-text-muted);
     margin-top: -0.75rem;
   }
