@@ -25,7 +25,7 @@
     { cat: 'gewuerze', tips: ['Jedes Gewürz zählt einzeln!', 'Pfeffer, Kurkuma, Zimt, Paprikapulver, Kreuzkümmel ...', 'Auch Gewürzmischungen: Curry, Garam Masala, Za\'atar'] },
     { cat: 'genuss', tips: ['Kaffee = Kaffeebohne (Pflanze!)', 'Dunkle Schokolade = Kakao', 'Grüner, schwarzer, weißer Tee = Camellia', 'Mate'] },
     { cat: 'huelsenfruechte', tips: ['Tofu, Tempeh, Miso, Sojasauce = Sojabohne', 'Erdnüsse sind Hülsenfrüchte', 'Hummus = Kichererbsen', 'Jede Bohnenart zählt einzeln (Kidney, schwarze, weiße ...)'] },
-    { cat: 'getreide', tips: ['Pasta, Couscous = Weizen', 'Haferflocken, Porridge = Hafer', 'Brot? Kommt drauf an: Weizen-, Roggen- oder Dinkelbrot', 'Pseudogetreide: Quinoa, Amaranth, Buchweizen'] },
+    { cat: 'getreide', tips: ['Vollkorn-Pasta = Weizen (normale Pasta aus Weißmehl zählt nicht)', 'Couscous = Weizen (Vollkorn bevorzugt)', 'Haferflocken, Porridge = Hafer', 'Brot? Kommt drauf an: Weizen-, Roggen- oder Dinkelbrot', 'Pseudogetreide: Quinoa, Amaranth, Buchweizen'] },
     { cat: 'kraeuter', tips: ['Jedes Kraut zählt einzeln', 'Auch als Tee: Kamille, Pfefferminze, Salbei', 'Wildkräuter: Brennnessel, Löwenzahn, Bärlauch'] },
     { cat: 'samen', tips: ['Sesam (auch Tahini!)', 'Leinsamen, Chiasamen, Hanfsamen', 'Senf = Senfkörner', 'Mohn, Sonnenblumenkerne, Kürbiskerne'] },
     { cat: 'nuesse', tips: ['Jede Nuss einzeln: Walnuss, Cashew, Mandel ...', 'Kokosnuss zählt auch!', 'Muskatnuss (das Gewürz)'] },
