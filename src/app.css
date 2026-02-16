@@ -1,0 +1,38 @@
+:root {
+  --color-primary: #2d6a4f;
+  --color-primary-light: #40916c;
+  --color-success: #2d6a4f;
+  --color-warning: #e9c46a;
+  --color-danger: #e76f51;
+  --color-surface: #ffffff;
+  --color-background: #f8f9fa;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6c757d;
+  --color-border: #e9ecef;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100%;
+  padding-bottom: 60px;
+}
+
+button {
+  font-family: inherit;
+}
