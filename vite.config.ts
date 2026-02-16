@@ -12,7 +12,7 @@ export default defineConfig({
       registerType: 'prompt',
       manifest: {
         name: 'Mikrobiom Counter',
-        short_name: 'MikroCount',
+        short_name: '30 Pflanzen',
         description: '30 Pflanzen pro Woche für dein Mikrobiom',
         lang: 'de',
         theme_color: '#2d6a4f',
