@@ -79,7 +79,7 @@
         </p>
 
         <h3 class="guide-section-title">Was zählt?</h3>
-        <p class="guide-rule">Ganze oder minimal verarbeitete Pflanzen. Frisch, getrocknet, tiefgekühlt, eingelegt oder fermentiert. Smoothies zählen, solange ganze Früchte oder Gemüse püriert werden — jede Zutat zählt einzeln.</p>
+        <p class="guide-rule">Ganze oder minimal verarbeitete Pflanzen. Frisch, getrocknet, tiefgekühlt, eingelegt oder fermentiert. Smoothies zählen (jede Zutat einzeln), Säfte nicht (Ballaststoffe fehlen).</p>
 
         {#each tips as { cat, tips: items }}
           <div class="tip-category">
