@@ -95,7 +95,8 @@
         <h3 class="guide-section-title">Was zählt nicht?</h3>
         <ul class="exclusion-list">
           <li>Ultra-verarbeitete Produkte (Chips, Schokoriegel, Fertiggerichte)</li>
-          <li>Fruchtsäfte, Sirup, raffinierter Zucker</li>
+          <li>Säfte — auch 100% Direktsaft zählt nicht. Beim Entsaften gehen die Ballaststoffe verloren, die dein Mikrobiom braucht. Lieber die ganze Frucht essen.</li>
+          <li>Sirup, raffinierter Zucker</li>
           <li>Weißmehlprodukte (Weißbrot, normale Pasta aus Auszugsmehl)</li>
           <li>Isolierte Extrakte (Öle, Nahrungsergänzungsmittel)</li>
         </ul>
