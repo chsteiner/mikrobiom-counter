@@ -72,10 +72,10 @@
       </summary>
       <div class="guide-content">
         <p class="guide-intro">
-          Das <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5954204/" target="_blank" rel="noopener"><em>American Gut Project</em></a> (2018, 10.000+ Teilnehmer) hat gezeigt: Wer 30+ verschiedene Pflanzenarten pro Woche isst, hat ein signifikant diverseres Darmmikrobiom als jemand mit weniger als 10.
+          Das <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5954204/" target="_blank" rel="noopener"><em>American Gut Project</em></a> (2018, 10.000+ Teilnehmer) hat gezeigt: Wer 30+ verschiedene pflanzliche Lebensmittel pro Woche isst, hat ein signifikant diverseres Darmmikrobiom als jemand mit weniger als 10.
         </p>
         <p class="guide-intro">
-          Die Studie hat schlicht verschiedene Pflanzenarten pro Woche gezählt. Diese App macht es genauso: jede Art = 1 Punkt, unabhängig von Menge oder Zubereitung.
+          Jedes pflanzliche Lebensmittel = 1 Punkt — gezählt wird auf Lebensmittel-Ebene, wie in der Originalstudie. Unabhängig von Menge oder Zubereitung.
         </p>
 
         <h3 class="guide-section-title">Was zählt?</h3>
@@ -102,7 +102,7 @@
 
         <p class="guide-source">
           Quelle: McDonald et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5954204/" target="_blank" rel="noopener"><em>American Gut: an Open Platform for Citizen Science Microbiome Research</em></a>, mSystems 2018.
-          Die Zählung folgt der Originalstudie: jede Pflanzenart zählt gleich, ohne Gewichtung.
+          Die Zählung folgt der Originalstudie: jedes pflanzliche Lebensmittel zählt gleich, ohne Gewichtung.
         </p>
       </div>
     </details>
