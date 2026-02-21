@@ -103,8 +103,41 @@
 
         <p class="guide-source">
           Quelle: McDonald et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5954204/" target="_blank" rel="noopener"><em>American Gut: an Open Platform for Citizen Science Microbiome Research</em></a>, mSystems 2018.
-          Die Zählung folgt der Originalstudie: jedes pflanzliche Lebensmittel zählt gleich, ohne Gewichtung.
+          Die Forschung wird weitergeführt als <a href="https://microsetta.ucsd.edu/" target="_blank" rel="noopener"><em>The Microsetta Initiative</em></a> (UC San Diego).
+          Für aktuelle Studien und Hintergründe: <a href="https://www.gutmicrobiotaforhealth.com/" target="_blank" rel="noopener"><em>Gut Microbiota for Health</em></a> (ESNM).
         </p>
+      </div>
+    </details>
+  </section>
+
+  <section class="setting-group guide">
+    <details>
+      <summary class="guide-header">
+        <span class="guide-title">Tipps</span>
+        <span class="guide-subtitle">9 Hacks + 5 Klarstellungen</span>
+      </summary>
+      <div class="guide-content">
+        <h3 class="guide-section-title">Schnell auf 30</h3>
+        <ul class="tips-list">
+          <li><strong>Samen-Streuer</strong>: Chia, Lein, Hanf, Kürbiskerne, Sonnenblumenkerne, Sesam in ein Glas mischen. Löffel drüber = 6 Pflanzen!</li>
+          <li><strong>TK-Mix statt Mono</strong>: Waldbeer-Mix statt nur Himbeeren (4 statt 1!). Gemüse-Mix statt nur Erbsen</li>
+          <li><strong>Gewürzregal durchzählen</strong>: Jedes einzelne Gewürz zählt! Wer selbst würzt, sammelt schnell 5–8 Extra-Punkte</li>
+          <li><strong>Frühstücks-Baukasten</strong>: Porridge + Samen-Streuer + Obst = 8–10 Pflanzen pro Frühstück</li>
+          <li><strong>Bohnen-Mix aus der Dose</strong>: Die bunte Dose nehmen (Kidney, weiße, Kichererbsen) = 3 statt 1</li>
+          <li><strong>Kräuter auf alles</strong>: Jedes zählt einzeln! Auch reiner Kräutertee (Kamillentee, Pfefferminztee)</li>
+          <li><strong>Nussmix statt eine Sorte</strong>: Studentenfutter statt nur Mandeln = 4 Punkte im Vorbeigehen</li>
+          <li><strong>Dips zählen mit</strong>: Hummus = Kichererbsen + Sesam (Tahini!) + Knoblauch = 3 Pflanzen (Zutatenliste checken)</li>
+          <li><strong>Suppen &amp; Eintöpfe</strong>: Gemüsesuppe mit 6–10 Zutaten = Wochen-Jackpot</li>
+        </ul>
+
+        <h3 class="guide-section-title">Gut zu wissen</h3>
+        <ul class="tips-list">
+          <li><strong>Farbe ≠ Pflanze</strong>: Rote, gelbe, grüne Paprika = 1 Pflanze (Capsicum annuum). Gleiches gilt für Zwiebelfarben</li>
+          <li><strong>Tee-Falle</strong>: Grüner, schwarzer, weißer Tee = selbe Pflanze (Camellia sinensis) = 1 Punkt. Kräutertees zählen dagegen einzeln!</li>
+          <li><strong>Mischungen = 1 Punkt</strong>: Currypulver, Kräuter der Provence, 7-Kräuter-Tee: eine Mischung = 1 Punkt, egal wie viele Zutaten. Die einzelnen Gewürze sind nur in Spuren enthalten. Einzeln verwenden = einzeln zählen</li>
+          <li><strong>Weißmehl = 0 Punkte</strong>: Semmel, Weißbrot, normale Pasta aus Auszugsmehl zählen nicht. Nur Vollkorn</li>
+          <li><strong>Fermentiert = Bonus</strong>: Sauerkraut zählt 1 Punkt (Weißkohl), ist aber durch Fermentation extra wertvoll fürs Mikrobiom. Gilt auch für Kimchi, Miso, Tempeh</li>
+        </ul>
       </div>
     </details>
   </section>
@@ -393,6 +426,18 @@
     color: var(--color-text);
     line-height: 1.4;
     padding: 1px 0;
+  }
+
+  .tips-list {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+
+  .tips-list li {
+    font-size: 0.78rem;
+    color: var(--color-text);
+    line-height: 1.4;
+    padding: 2px 0;
   }
 
   .guide-source {
