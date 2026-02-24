@@ -97,7 +97,7 @@
           <li>Ultra-verarbeitete Produkte (Chips, Schokoriegel, Fertiggerichte)</li>
           <li>Säfte — auch 100% Direktsaft zählt nicht. Beim Entsaften gehen die Ballaststoffe verloren, die dein Mikrobiom braucht. Lieber die ganze Frucht essen.</li>
           <li>Sirup, raffinierter Zucker</li>
-          <li>Weißmehlprodukte (Weißbrot, normale Pasta aus Auszugsmehl)</li>
+          <li>Weißmehlprodukte (Weißbrot, normale Pasta aus Auszugsmehl, weißer Reis)</li>
           <li>Isolierte Extrakte (Öle, Nahrungsergänzungsmittel)</li>
         </ul>
 
@@ -135,7 +135,7 @@
           <li><strong>Farbe ≠ Pflanze</strong>: Rote, gelbe, grüne Paprika = 1 Pflanze (Capsicum annuum). Gleiches gilt für Zwiebelfarben</li>
           <li><strong>Tee-Falle</strong>: Grüner, schwarzer, weißer Tee = selbe Pflanze (Camellia sinensis) = 1 Punkt. Kräutertees zählen dagegen einzeln!</li>
           <li><strong>Mischungen = 1 Punkt</strong>: Currypulver, Kräuter der Provence, 7-Kräuter-Tee: eine Mischung = 1 Punkt, egal wie viele Zutaten. Die einzelnen Gewürze sind nur in Spuren enthalten. Einzeln verwenden = einzeln zählen</li>
-          <li><strong>Weißmehl = 0 Punkte</strong>: Semmel, Weißbrot, normale Pasta aus Auszugsmehl zählen nicht. Nur Vollkorn</li>
+          <li><strong>Weißmehl &amp; weißer Reis = 0 Punkte</strong>: Semmel, Weißbrot, normale Pasta aus Auszugsmehl und weißer Reis (Basmati, Jasmin, Sushi) zählen nicht. Nur Vollkorn</li>
           <li><strong>Fermentiert = Bonus</strong>: Sauerkraut zählt 1 Punkt (Weißkohl), ist aber durch Fermentation extra wertvoll fürs Mikrobiom. Gilt auch für Kimchi, Miso, Tempeh</li>
         </ul>
       </div>
