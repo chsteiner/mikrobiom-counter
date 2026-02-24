@@ -191,10 +191,9 @@ export const PLANTS: Plant[] = [
   { id: 'kaeferbohne', name: 'Käferbohne', category: 'huelsenfruechte', aliases: ['Käferbohnen', 'Feuerbohne', 'Feuerbohnen', 'Prunkbohne', 'Riesenbohne', 'Steirische Käferbohne'] },
 
   // ──────────────────────────────────────────────
-  // GETREIDE (Grains) — 26 entries
+  // GETREIDE (Grains) — 25 entries
   // ──────────────────────────────────────────────
   { id: 'hafer', name: 'Hafer', category: 'getreide', aliases: ['Haferflocken', 'Haferkleie', 'Hafermehl', 'Hafermilch', 'Porridge', 'Overnight Oats'] },
-  { id: 'reis', name: 'Reis', category: 'getreide', aliases: ['Basmati', 'Basmatireis', 'Jasminreis', 'Naturreis', 'Vollkornreis', 'Wildreis', 'Risottoreis', 'Sushireis', 'Reismehl'] },
   { id: 'weizen', name: 'Weizen', category: 'getreide', aliases: ['Weizenmehl', 'Weizenkleie', 'Weizenkeime', 'Vollkornweizen', 'Weizenbrot', 'Weizenbrötchen', 'Weizengras', 'Weizengraspulver', 'Pasta', 'Nudeln'] },
   { id: 'roggen', name: 'Roggen', category: 'getreide', aliases: ['Roggenmehl', 'Roggenbrot', 'Roggenvollkorn', 'Pumpernickel'] },
   { id: 'dinkel', name: 'Dinkel', category: 'getreide', aliases: ['Dinkelmehl', 'Dinkelflocken', 'Dinkelbrot', 'Grünkern', 'Dinkelreis'] },
@@ -217,7 +216,7 @@ export const PLANTS: Plant[] = [
   { id: 'glasnudeln', name: 'Glasnudeln', category: 'getreide', aliases: ['Reisnudeln', 'Cellophannudeln'] },
   { id: 'weizenkeime', name: 'Weizenkeime', category: 'getreide', aliases: ['Weizenkeim', 'Weizenkeimöl'] },
   { id: 'maiskolben', name: 'Maiskolben', category: 'getreide', aliases: ['Zuckermaiskolben'] },
-  { id: 'vollkornreis', name: 'Vollkornreis', category: 'getreide', aliases: ['Brauner Reis', 'Naturreis'] },
+  { id: 'vollkornreis', name: 'Vollkornreis', category: 'getreide', aliases: ['Brauner Reis', 'Naturreis', 'Vollkorn-Reis'] },
   { id: 'wildreis', name: 'Wildreis', category: 'getreide', aliases: ['Indianerreis', 'Wasserreis'] },
 
   // ──────────────────────────────────────────────
