@@ -73,13 +73,19 @@
     }
   }
 
-  async function handleManualResult(plantId: string, plantName: string) {
-    const result = await onadd(plantId, plantName, 'manual');
+  async function handleManualResult(plants: { id: string; name: string }[]) {
+    const duplicates: string[] = [];
+    for (const p of plants) {
+      const result = await onadd(p.id, p.name, 'manual');
+      if (result === 'duplicate') duplicates.push(p.name);
+    }
     showManual = false;
-    if (result === 'duplicate') {
-      showToast(`${plantName} ist schon dabei`);
+    if (duplicates.length > 0) {
+      showToast(`${duplicates.join(', ')} — schon dabei`);
     }
   }
+
+  let existingPlantIds = $derived(new Set(summary.uniquePlants));
 
   let isFirstUse = $derived(totalEntries === 0 && summary.entries.length === 0);
 
@@ -152,8 +158,9 @@
 
 {#if showManual}
   <ManualInput
-    onselect={handleManualResult}
+    onconfirm={handleManualResult}
     onclose={() => showManual = false}
+    {existingPlantIds}
   />
 {/if}
 

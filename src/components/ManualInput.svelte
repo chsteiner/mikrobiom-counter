@@ -1,20 +1,52 @@
 <script lang="ts">
   import { searchPlants } from '../lib/plantMatcher';
-  import { CATEGORY_LABELS, type Plant } from '../data/types';
+  import { PLANTS } from '../data/plants';
+  import { CATEGORY_LABELS, type Plant, type PlantCategory } from '../data/types';
 
   interface Props {
-    onselect: (plantId: string, plantName: string) => void;
+    onconfirm: (plants: { id: string; name: string }[]) => void;
     onclose: () => void;
+    existingPlantIds?: Set<string>;
   }
 
-  let { onselect, onclose }: Props = $props();
+  let { onconfirm, onclose, existingPlantIds = new Set() }: Props = $props();
 
   let query = $state('');
-  let results = $derived(searchPlants(query, 15));
+  let selected = $state<Map<string, string>>(new Map());
   let inputEl: HTMLInputElement;
 
-  function selectPlant(plant: Plant) {
-    onselect(plant.id, plant.name);
+  let results = $derived(query.length > 0 ? searchPlants(query, 20) : []);
+
+  // Group all plants by category for browse mode
+  const grouped = (() => {
+    const map = new Map<PlantCategory, Plant[]>();
+    for (const plant of PLANTS) {
+      if (!map.has(plant.category)) map.set(plant.category, []);
+      map.get(plant.category)!.push(plant);
+    }
+    return map;
+  })();
+
+  const categoryOrder: PlantCategory[] = [
+    'gemuese', 'obst', 'nuesse', 'samen', 'huelsenfruechte',
+    'getreide', 'kraeuter', 'gewuerze', 'pilze', 'genuss'
+  ];
+
+  function togglePlant(plant: Plant) {
+    const next = new Map(selected);
+    if (next.has(plant.id)) {
+      next.delete(plant.id);
+    } else {
+      next.set(plant.id, plant.name);
+    }
+    selected = next;
+  }
+
+  function confirm() {
+    const plants = Array.from(selected.entries()).map(([id, name]) => ({ id, name }));
+    if (plants.length > 0) {
+      onconfirm(plants);
+    }
   }
 
   function handleKeydown(e: KeyboardEvent) {
@@ -23,7 +55,6 @@
     }
   }
 
-  // Auto-focus input when modal opens
   $effect(() => {
     inputEl?.focus();
   });
@@ -48,22 +79,72 @@
       />
     </div>
 
-    {#if query.length > 0 && results.length > 0}
-      <ul class="results-list">
-        {#each results as plant}
-          <li>
-            <button class="result-item" onclick={() => selectPlant(plant)}>
-              <span class="result-name">{plant.name}</span>
-              <span class="result-category">{CATEGORY_LABELS[plant.category]}</span>
-            </button>
-          </li>
+    <div class="plant-list">
+      {#if query.length > 0}
+        {#if results.length > 0}
+          <ul class="results-list">
+            {#each results as plant}
+              {@const isExisting = existingPlantIds.has(plant.id)}
+              <li>
+                <label class="plant-row" class:existing={isExisting}>
+                  <input
+                    type="checkbox"
+                    checked={selected.has(plant.id)}
+                    onchange={() => togglePlant(plant)}
+                  />
+                  <span class="plant-name">{plant.name}</span>
+                  {#if isExisting}
+                    <span class="plant-badge">dabei</span>
+                  {:else}
+                    <span class="plant-category">{CATEGORY_LABELS[plant.category]}</span>
+                  {/if}
+                </label>
+              </li>
+            {/each}
+          </ul>
+        {:else if query.length >= 2}
+          <p class="no-results">Keine Pflanze gefunden für "{query}"</p>
+        {/if}
+      {:else}
+        {#each categoryOrder as cat}
+          {@const plants = grouped.get(cat)}
+          {#if plants}
+            <div class="category-group">
+              <h4 class="category-header">{CATEGORY_LABELS[cat]}</h4>
+              <ul class="results-list">
+                {#each plants as plant}
+                  {@const isExisting = existingPlantIds.has(plant.id)}
+                  <li>
+                    <label class="plant-row" class:existing={isExisting}>
+                      <input
+                        type="checkbox"
+                        checked={selected.has(plant.id)}
+                        onchange={() => togglePlant(plant)}
+                      />
+                      <span class="plant-name">{plant.name}</span>
+                      {#if isExisting}
+                        <span class="plant-badge">dabei</span>
+                      {/if}
+                    </label>
+                  </li>
+                {/each}
+              </ul>
+            </div>
+          {/if}
         {/each}
-      </ul>
-    {:else if query.length >= 2 && results.length === 0}
-      <p class="no-results">Keine Pflanze gefunden für "{query}"</p>
-    {/if}
+      {/if}
+    </div>
 
-    <button class="btn-cancel" onclick={onclose}>Abbrechen</button>
+    <div class="actions">
+      <button class="btn-cancel" onclick={onclose}>Abbrechen</button>
+      <button
+        class="btn-primary"
+        onclick={confirm}
+        disabled={selected.size === 0}
+      >
+        Speichern ({selected.size})
+      </button>
+    </div>
   </div>
 </div>
 
@@ -75,7 +156,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding-top: 10vh;
+    padding-top: 5vh;
     z-index: 200;
   }
 
@@ -86,8 +167,9 @@
     margin: 1rem;
     max-width: 400px;
     width: 100%;
-    max-height: 70vh;
-    overflow-y: auto;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
   }
 
   .search-field input {
@@ -104,37 +186,68 @@
     border-color: var(--color-primary);
   }
 
+  .plant-list {
+    flex: 1;
+    overflow-y: auto;
+    margin: 0.75rem 0;
+    min-height: 0;
+  }
+
   .results-list {
     list-style: none;
     padding: 0;
-    margin: 0.75rem 0 0;
+    margin: 0;
   }
 
-  .result-item {
+  .plant-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 0.5rem;
     width: 100%;
-    padding: 0.65rem 0.5rem;
-    background: none;
-    border: none;
+    padding: 0.5rem 0.25rem;
     border-bottom: 1px solid var(--color-border);
     cursor: pointer;
-    text-align: left;
     font-size: 0.95rem;
   }
 
-  .result-item:active {
-    background: var(--color-background);
+  .plant-row.existing {
+    opacity: 0.4;
   }
 
-  .result-name {
+  .plant-name {
+    flex: 1;
     font-weight: 500;
   }
 
-  .result-category {
-    font-size: 0.75rem;
+  .plant-category {
+    font-size: 0.7rem;
     color: var(--color-text-muted);
+  }
+
+  .plant-badge {
+    font-size: 0.65rem;
+    color: var(--color-primary);
+    background: rgba(45, 106, 79, 0.1);
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.5rem;
+  }
+
+  .category-group {
+    margin-bottom: 0.5rem;
+  }
+
+  .category-header {
+    position: sticky;
+    top: 0;
+    background: var(--color-surface);
+    margin: 0;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--color-primary);
   }
 
   .no-results {
@@ -144,16 +257,38 @@
     font-size: 0.9rem;
   }
 
+  .actions {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
   .btn-cancel {
-    display: block;
-    width: 100%;
+    flex: 1;
     padding: 0.6rem;
-    margin-top: 0.75rem;
     background: none;
     color: var(--color-text-muted);
     border: 1px solid var(--color-border);
     border-radius: 0.5rem;
     font-size: 0.9rem;
     cursor: pointer;
+  }
+
+  .btn-primary {
+    flex: 1;
+    padding: 0.6rem;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 </style>

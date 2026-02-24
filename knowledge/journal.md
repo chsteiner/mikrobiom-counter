@@ -35,6 +35,10 @@
 
 ## Offene Fragen
 
-- Gewürzmischungen (Curry, Garam Masala, Za'atar): Zählen als 1 Pflanze oder als ihre Einzelbestandteile? Aktuell: als 1 Pflanze. Pragmatisch, aber nicht ganz korrekt.
+- ~~Gewürzmischungen (Curry, Garam Masala, Za'atar): Zählen als 1 Pflanze oder als ihre Einzelbestandteile?~~ Behoben: Pragmatische Regel — fertige Mischung = 1 Punkt (Spuren reichen biologisch nicht). Einzeln verwenden = einzeln zählen. Gilt auch für Kräutertee-Mischungen.
 - ~~Sojasauce: Zählt das als Sojabohne?~~ Behoben: Sojasauce/Shoyu/Tamari als Aliase hinzugefügt.
 - ~~Rauchsalz: Ist kein Pflanzenprodukt.~~ Behoben: Eintrag gelöscht.
+
+## Native App — Feature-Ideen
+
+- **Share-Card**: Wochen-Ergebnis als visuelles Bild generieren (Fortschrittsring + Zahl + Pflanzenliste), über nativen Share Sheet teilen (WhatsApp, Instagram Story, etc.). Canvas-to-Image + Share Intent. Gamification-Effekt: "Schau mal, 32 Pflanzen diese Woche!"
