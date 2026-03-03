@@ -22,7 +22,7 @@
 
   type TipEntry = { cat: PlantCategory; tips: string[] };
   const tips: TipEntry[] = [
-    { cat: 'gewuerze', tips: ['Jedes Gewürz zählt einzeln!', 'Pfeffer, Kurkuma, Zimt, Paprikapulver, Kreuzkümmel ...', 'Auch Gewürzmischungen: Curry, Garam Masala, Za\'atar'] },
+    { cat: 'gewuerze', tips: ['Jedes Gewürz zählt einzeln!', 'Pfeffer, Kurkuma, Zimt, Kreuzkümmel, Kardamom ...', 'Auch Gewürzmischungen: Curry, Garam Masala, Za\'atar'] },
     { cat: 'genuss', tips: ['Kaffee = Kaffeebohne (Pflanze!)', 'Dunkle Schokolade = Kakao', 'Grüner, schwarzer, weißer Tee = Camellia', 'Mate'] },
     { cat: 'huelsenfruechte', tips: ['Tofu, Tempeh, Miso, Sojasauce = Sojabohne', 'Erdnüsse sind Hülsenfrüchte', 'Hummus = Kichererbsen', 'Jede Bohnenart zählt einzeln (Kidney, schwarze, weiße ...)'] },
     { cat: 'getreide', tips: ['Vollkorn-Pasta = Weizen (normale Pasta aus Weißmehl zählt nicht)', 'Vollkornreis, Naturreis = zählt (weißer Reis zählt nicht)', 'Couscous = Weizen (Vollkorn bevorzugt)', 'Haferflocken, Porridge = Hafer', 'Brot? Kommt drauf an: Weizen-, Roggen- oder Dinkelbrot', 'Pseudogetreide: Quinoa, Amaranth, Buchweizen'] },
@@ -132,7 +132,7 @@
 
         <h3 class="guide-section-title">Gut zu wissen</h3>
         <ul class="tips-list">
-          <li><strong>Farbe ≠ Pflanze</strong>: Rote, gelbe, grüne Paprika = 1 Pflanze (Capsicum annuum). Gleiches gilt für Zwiebelfarben</li>
+          <li><strong>Gleiche Pflanzenart = 1 Punkt</strong>: Paprika, Chili, Jalapeño, Peperoni und Paprikapulver sind alles Capsicum annuum = 1 Punkt. Auch Fenchel + Fenchelsamen oder Koriander + Koriandersamen: gleiche Pflanze, egal welcher Teil</li>
           <li><strong>Tee-Falle</strong>: Grüner, schwarzer, weißer Tee = selbe Pflanze (Camellia sinensis) = 1 Punkt. Kräutertees zählen dagegen einzeln!</li>
           <li><strong>Mischungen = 1 Punkt</strong>: Currypulver, Kräuter der Provence, 7-Kräuter-Tee: eine Mischung = 1 Punkt, egal wie viele Zutaten. Die einzelnen Gewürze sind nur in Spuren enthalten. Einzeln verwenden = einzeln zählen</li>
           <li><strong>Weißmehl &amp; weißer Reis = 0 Punkte</strong>: Semmel, Weißbrot, normale Pasta aus Auszugsmehl und weißer Reis (Basmati, Jasmin, Sushi) zählen nicht. Nur Vollkorn</li>
