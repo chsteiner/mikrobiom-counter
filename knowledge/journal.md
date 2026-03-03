@@ -39,6 +39,20 @@
 - ~~Sojasauce: Zählt das als Sojabohne?~~ Behoben: Sojasauce/Shoyu/Tamari als Aliase hinzugefügt.
 - ~~Rauchsalz: Ist kein Pflanzenprodukt.~~ Behoben: Eintrag gelöscht.
 
+## Play Store Deployment (2026-03-03)
+
+**Entscheidung:** PWA via TWA (Trusted Web Activity) in den Google Play Store bringen.
+- **Tool:** Bubblewrap CLI (Google Chrome Labs)
+- **Hosting:** Repo nach `DigitalHumanitiesCraft/mikrobiom-counter` transferieren, Deploy auf `dhcraft.org/mikrobiom-counter/`
+- **Domain:** `dhcraft.org` (GitHub Pages, CNAME bestätigt)
+- **Package Name:** `org.dhcraft.mikrobiomcounter`
+- **Knowledge Doc:** `knowledge/playstore.md`
+
+**Gefundene Probleme:**
+- PWA Icons (192px, 512px PNG) fehlen im Projekt — im Manifest referenziert aber nicht in `public/`
+- Version steht auf `0.0.0`
+- assetlinks.json muss ins `digitalhumanitiescraft.github.io` Root-Repo
+
 ## Native App — Feature-Ideen
 
 - **Share-Card**: Wochen-Ergebnis als visuelles Bild generieren (Fortschrittsring + Zahl + Pflanzenliste), über nativen Share Sheet teilen (WhatsApp, Instagram Story, etc.). Canvas-to-Image + Share Intent. Gamification-Effekt: "Schau mal, 32 Pflanzen diese Woche!"
